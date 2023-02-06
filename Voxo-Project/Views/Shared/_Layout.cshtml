@@ -1,0 +1,796 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from themes.pixelstrap.com/voxo/front-end/flower-demo.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 20 Dec 2022 19:31:02 GMT -->
+<head>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="~/assets/images/favicon/5.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="~/assets/images/favicon/5.png">
+    <meta name="theme-color" content="#df4246">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Voxo">
+    <meta name="msapplication-TileImage" content="~/assets/images/favicon/5.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Voxo">
+    <meta name="keywords" content="Voxo">
+    <meta name="author" content="Voxo">
+    <link rel="icon" href="~/assets/images/favicon/5.png" type="image/x-icon">
+    <title>Flower Store</title>
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap"
+          rel="stylesheet">
+
+    <!-- bootstrap css -->
+    <link id="rtl-link" rel="stylesheet" type="text/css" href="~/assets/css/vendors/bootstrap.css">
+
+    <!-- font-awesome css -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/vendors/font-awesome.css">
+
+    <!-- feather icon css -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/vendors/feather-icon.css">
+
+    <!-- animation css -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/vendors/animate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- slick css -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/vendors/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/vendors/slick/slick-theme.css">
+
+    <!-- Theme css -->
+    <link id="color-link" rel="stylesheet" type="text/css" href="~/assets/css/demo5.css">
+
+</head>
+
+<body class="theme-color5 light ltr">
+
+    <!-- header start -->
+    <header id="home">
+        <div class="header-style-3">
+            <div class="main-header navbar-searchbar">
+                <div class="container-fluid-lg">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-menu common-menu">
+                                <div class="top-header top-comman-header text-center ms-0">
+                                    <div class="brand-logo">
+                                        <a asp-controller="Home" asp-action="Index">
+                                            <svg class="svg-icon">
+                                                <use class="fill-color" xlink:href="~/assets/svg/icons.svg#logo"></use>
+                                            </svg>
+                                            <img src="~/assets/images/logo.png" class="img-fluid blur-up lazyload"
+                                                 alt="logo">
+                                        </a>
+                                    </div>
+                                </div>
+                                @await Component.InvokeAsync("Categories")
+                                <nav class="navigationbar">
+                                    <div class="main-navbar">
+                                        <div id="mainnav">
+                                            <div class="toggle-nav ms-sm-3 ms-0">
+                                                <i class="fa fa-bars sidebar-bar"></i>
+                                            </div>
+                                            <ul class="nav-menu">
+                                                <li class="back-btn d-xl-none">
+                                                    <div class="close-btn">
+                                                        Menu
+                                                        <span class="mobile-back">
+                                                            <i class="fa fa-angle-left"></i>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="mega-menu dropdown home-menu">
+                                                    <a asp-controller="Home" asp-action="Index" as class="nav-link">home</a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a asp-controller="Shop" asp-action="Index" class="nav-link">shop</a>
+                                                </li>
+                                                
+                                                <li>
+                                                    <a asp-controller="Blogs" asp-action="Index" as class="nav-link menu-title">blog</a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a asp-controller="Contact" asp-action="Index">Contact</a>
+
+                                                </li>
+                                                <li class="mobile-poster d-flex d-xl-none">
+                                                    <img src="~/assets/images/pwa.png" class="img-fluid" alt="">
+                                                    <div class="mobile-contain">
+                                                        <h5>Enjoy app-like experience</h5>
+                                                        <p class="font-light">
+                                                            Get our tiny 0.4MB web-app; it's smaller
+                                                            than
+                                                            a selfie
+                                                        </p>
+                                                        <a href="javascript:void(0)" id="installApp"
+                                                           class="btn btn-solid-default btn-spacing w-100">
+                                                            ADD TO
+                                                            HOMESCREEN
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </nav>
+                                <div class="menu-right">
+                                    <ul>
+                                        <li>
+                                            <div class="search-box">
+                                                <i data-feather="search"></i>
+                                            </div>
+                                        </li>
+                                        <li class="onhover-dropdown">
+                                            <div class="cart-media">
+                                                <i data-feather="user"></i>
+                                            </div>
+                                            <div class="onhover-div profile-dropdown">
+                                                <ul>
+                                                    @if (!User.Identity.IsAuthenticated)
+                                                    {
+                                                        <li>
+                                                            <a asp-controller="Account" asp-action="Login">Login</a>
+                                                        </li>
+                                                        <li>
+                                                            <a asp-controller="Account" asp-action="Register">Register</a>
+                                                        </li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li>
+                                                            <a asp-controller="Account" asp-action="LogOut">Log Out</a>
+                                                        </li>
+                                                        <li>
+                                                            <a asp-controller="Account" asp-action="ChangePassword">Change Password</a>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a asp-controller="Compare" asp-action="Index">
+                                                <i data-feather="refresh-cw"></i>
+                                            </a>
+                                        </li>
+                                        @await Component.InvokeAsync("WishList")
+                                        @await Component.InvokeAsync("Basket")
+                                    </ul>
+                                </div>
+                                <div class="search-full">
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i data-feather="search" class="font-light"></i>
+                                        </span>
+                                        <input type="text" class="form-control search-type" placeholder="Search here..">
+                                        <span class="input-group-text close-search">
+                                            <i data-feather="x" class="font-light"></i>
+                                        </span>
+                                    </div>
+                                    <div class="search-suggestion">
+                                        <ul class="custom-scroll">
+                                            <li>
+                                                <div class="product-cart media">
+                                                    <img src="~/assets/images/electronics/product/1.jpg"
+                                                         class="img-fluid blur-up lazyload" alt="">
+                                                    <div class="media-body">
+                                                        <a href="javascript:void(0)">
+                                                            <h6 class="mb-1">Latest Sports Shoes</h6>
+                                                        </a>
+                                                        <ul class="rating">
+                                                            <li>
+                                                                <i class="fas fa-star theme-color"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fas fa-star theme-color"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fas fa-star theme-color"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fas fa-star"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fas fa-star"></i>
+                                                            </li>
+                                                        </ul>
+                                                        <p class="mb-0 mt-1">$28.00</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="product-cart media">
+                                                    <img src="~/assets/images/electronics/product/5.jpg"
+                                                         class="img-fluid blur-up lazyload" alt="">
+                                                    <div class="media-body">
+                                                        <a href="javascript:void(0)">
+                                                            <h6 class="mb-1">Powermatic 900 W Juicer</h6>
+                                                        </a>
+                                                        <ul class="rating">
+                                                            <li>
+                                                                <i class="fas fa-star theme-color"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fas fa-star theme-color"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fas fa-star theme-color"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fas fa-star theme-color"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fas fa-star theme-color"></i>
+                                                            </li>
+                                                        </ul>
+                                                        <p class="mb-0 mt-1">$35.00</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+    <!-- mobile fix menu start -->
+    <div class="mobile-menu d-sm-none">
+        <ul>
+            <li>
+                <a href="demo3.html" class="active">
+                    <i data-feather="home"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="toggle-category">
+                    <i data-feather="align-justify"></i>
+                    <span>Category</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">
+                    <i data-feather="shopping-bag"></i>
+                    <span>Cart</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">
+                    <i data-feather="heart"></i>
+                    <span>Wishlist</span>
+                </a>
+            </li>
+            <li>
+                <a href="user-dashboard.html">
+                    <i data-feather="user"></i>
+                    <span>Account</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- mobile fix menu end -->
+    @RenderBody()
+    <!-- footer start -->
+    <footer class="footer-sm-space">
+        <div class="main-footer">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="footer-contact">
+                            <div class="brand-logo">
+                                <a href="index.html" class="footer-logo">
+                                    <svg class="svg-icon">
+                                        <use class="fill-color" xlink:href="~/assets/svg/icons.svg#logo"></use>
+                                    </svg>
+                                    <img src="~/assets/images/logo.png" class="img-fluid blur-up lazyload" alt="logo">
+                                </a>
+                            </div>
+                            <ul class="contact-lists">
+                                <li>
+                                    <span><b>phone:</b> <span class="font-light"> + 185659635</span></span>
+
+                                </li>
+                                <li>
+                                    <span>
+                                        <b>Address:</b><span class="font-light">
+                                            1418 Riverwood Drive, Suite 3245
+                                            Cottonwood, CA 96052, United States
+                                        </span>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span><b>Email:</b><span class="font-light"> Voxo123@gmail.com</span></span>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="footer-links">
+                            <div class="footer-title">
+                                <h3>About us</h3>
+                            </div>
+                            <div class="footer-content">
+                                <ul>
+                                    <li>
+                                        <a href="index.html" class="font-dark">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="shop-left-sidebar.html" class="font-dark">Shop</a>
+                                    </li>
+                                    <li>
+                                        <a href="about-us.html" class="font-dark">About Us</a>
+                                    </li>
+                                    <li>
+                                        <a href="shop-left-sidebar.html" class="font-dark">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="shop-left-sidebar.html" class="font-dark">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                        <div class="footer-links">
+                            <div class="footer-title">
+                                <h3>New Categories</h3>
+                            </div>
+                            <div class="footer-content">
+                                <ul>
+                                    <li>
+                                        <a href="shop-left-sidebar.html" class="font-dark">Latest Shoes</a>
+                                    </li>
+                                    <li>
+                                        <a href="shop-left-sidebar.html" class="font-dark">Branded Jeans</a>
+                                    </li>
+                                    <li>
+                                        <a href="shop-left-sidebar.html" class="font-dark">New Jackets</a>
+                                    </li>
+                                    <li>
+                                        <a href="shop-left-sidebar.html" class="font-dark">Colorfull Hoodies</a>
+                                    </li>
+                                    <li>
+                                        <a href="shop-left-sidebar.html" class="font-dark">Shiner Goggles</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                        <div class="footer-links">
+                            <div class="footer-title">
+                                <h3>Get Help</h3>
+                            </div>
+                            <div class="footer-content">
+                                <ul>
+                                    <li>
+                                        <a href="user-dashboard.html" class="font-dark">Your Orders</a>
+                                    </li>
+                                    <li>
+                                        <a href="user-dashboard.html" class="font-dark">Your Account</a>
+                                    </li>
+                                    <li>
+                                        <a href="order-tracking.html" class="font-dark">Track Orders</a>
+                                    </li>
+                                    <li>
+                                        <a href="wishlist.html" class="font-dark">Your Wishlist</a>
+                                    </li>
+                                    <li>
+                                        <a href="faq.html" class="font-dark">Shopping FAQs</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-sm-6 d-none d-sm-block">
+                        <div class="footer-newsletter">
+                            <h3>Got Qustion ? Call Us 24/7</h3>
+                            <div class="footer-number">
+                                <div class="footer-number-image">
+                                    <img src="~/assets/images/shoes/other/headphone.png"
+                                         class="img-fluid blur-up lazyload" alt="">
+                                </div>
+
+                                <div class="footer-number-container">
+                                    <h3>+91 98765 43210</h3>
+                                </div>
+                            </div>
+
+                            <div class="footer-details">
+                                <p class="font-light">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo ab
+                                    dolorem nulla
+                                    impedit saepe esse et? Ea, totam recusandae doloribus ipsa esse voluptate quis nisi?
+                                    Voluptate.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @await Component.InvokeAsync("FooterLogo")
+    </footer>
+    <!-- footer end -->
+    <!-- Quick view modal start -->
+    <div class="modal fade quick-view-modal" id="quick-view">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-body">
+                    <div class="row gy-4">
+                        <div class="col-lg-6">
+                            <div class="quick-view-image">
+                                <div class="quick-view-slider ratio_medium">
+                                    <div>
+                                        <img src="~/assets/images/flower/product/1.jpg"
+                                             class="img-fluid bg-img blur-up lazyload" alt="product">
+                                    </div>
+                                    <div>
+                                        <img src="~/assets/images/flower/product/2.jpg"
+                                             class="img-fluid bg-img blur-up lazyload" alt="product">
+                                    </div>
+                                    <div>
+                                        <img src="~/assets/images/flower/product/3.jpg"
+                                             class="img-fluid bg-img blur-up lazyload" alt="product">
+                                    </div>
+                                    <div>
+                                        <img src="~/assets/images/flower/product/4.jpg"
+                                             class="img-fluid bg-img blur-up lazyload" alt="product">
+                                    </div>
+                                </div>
+                                <div class="quick-nav">
+                                    <div>
+                                        <img src="~/assets/images/flower/product/1.jpg" class="img-fluid blur-up lazyload"
+                                             alt="product">
+                                    </div>
+                                    <div>
+                                        <img src="~/assets/images/flower/product/2.jpg" class="img-fluid blur-up lazyload"
+                                             alt="product">
+                                    </div>
+                                    <div>
+                                        <img src="~/assets/images/flower/product/3.jpg" class="img-fluid blur-up lazyload"
+                                             alt="product">
+                                    </div>
+                                    <div>
+                                        <img src="~/assets/images/flower/product/4.jpg" class="img-fluid blur-up lazyload"
+                                             alt="product">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="product-right">
+                                <h2 class="mb-2">Beautiful and Fresh Bookey</h2>
+                                <ul class="rating">
+                                    <li>
+                                        <i class="fas fa-star theme-color"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star theme-color"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star theme-color"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star"></i>
+                                    </li>
+                                </ul>
+                                <div class="price mt-3">
+                                    <h3>$20.00</h3>
+                                </div>
+                                <div class="color-types">
+                                    <h4>colors</h4>
+                                    <ul class="color-variant mb-0">
+                                        <li class="bg-half-light selected"></li>
+                                        <li class="bg-light1"></li>
+                                        <li class="bg-blue1"></li>
+                                        <li class="bg-black1"></li>
+                                    </ul>
+                                </div>
+                                <div class="product-details">
+                                    <h4>product details</h4>
+                                    <ul>
+                                        <li>
+                                            <span class="font-light">Display type :</span> Rose Bokeh
+                                        </li>
+                                        <li>
+                                            <span class="font-light">Mechanism:</span> Roce
+                                        </li>
+                                        <li>
+                                            <span class="font-light">Warranty:</span> 1 Month
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="product-btns">
+                                    <a href="cart.html" class="btn btn-solid-default btn-sm">
+                                        Add
+                                        to cart
+                                    </a>
+                                    <a href="product-left-sidebar.html" class="btn btn-solid-default btn-sm">
+                                        View
+                                        details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quick view modal end -->
+    <!-- Newsletter modal start -->
+    <div class="modal fade newletter-modal" id="newsletter">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <img src="~/assets/images/newletter-icon.png" class="img-fluid blur-up lazyload" alt="">
+                    <div class="modal-title">
+                        <h2 class="tt-title">Sign up for our Newsletter!</h2>
+                        <p class="font-light">Never miss any new updates or products we reveal, stay up to date.</p>
+                        <p class="font-light">Oh, and it's free!</p>
+                        <div class="input-group mb-3">
+                            <input placeholder="Email" class="form-control" type="text">
+                        </div>
+
+                        <div class="cancel-button text-center">
+                            <button class="btn default-theme w-100" data-bs-dismiss="modal"
+                                    type="button">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Newsletter modal end -->
+    <!-- Cart Successful Start -->
+    <div class="modal fade cart-modal" id="addtocart" tabindex="-1" role="dialog"
+         aria-label="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="modal-contain">
+                        <div>
+                            <div class="modal-messages">
+                                <i class="fas fa-check"></i> 3-stripes full-zip hoodie successfully added to
+                                you cart.
+                            </div>
+                            <div class="modal-product">
+                                <div class="modal-contain-img">
+                                    <img src="~/assets/images/fashion/instagram/4.jpg" class="img-fluid blur-up lazyload"
+                                         alt="">
+                                </div>
+                                <div class="modal-contain-details">
+                                    <h4>Premier Cropped Skinny Jean</h4>
+                                    <p class="font-light my-2">Yellow, Qty : 3</p>
+                                    <div class="product-total">
+                                        <h5>TOTAL : <span>$1,140.00</span></h5>
+                                    </div>
+                                    <div class="shop-cart-button mt-3">
+                                        <a href="shop-left-sidebar.html"
+                                           class="btn default-light-theme conti-button default-theme default-theme-2 rounded">
+                                            CONTINUE
+                                            SHOPPING
+                                        </a>
+                                        <a href="cart.html"
+                                           class="btn default-light-theme conti-button default-theme default-theme-2 rounded">
+                                            VIEW
+                                            CART
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ratio_asos mt-4">
+                        <div class="container">
+                            <div class="row m-0">
+                                <div class="col-sm-12 p-0">
+                                    <div class="product-wrapper product-style-2 slide-4 p-0 light-arrow bottom-space spacing-slider">
+                                        <div>
+                                            <div class="product-box">
+                                                <div class="img-wrapper">
+                                                    <div class="front">
+                                                        <a href="product-left-sidebar.html">
+                                                            <img src="~/assets/images/fashion/product/front/1.jpg"
+                                                                 class="bg-img blur-up lazyload" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="product-details text-center">
+                                                    <div class="rating-details d-block text-center">
+                                                        <span class="font-light grid-content">B&Y Jacket</span>
+                                                    </div>
+                                                    <div class="main-price mt-0 d-block text-center">
+                                                        <h3 class="theme-color">$78.00</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="product-box">
+                                                <div class="img-wrapper">
+                                                    <div class="front">
+                                                        <a href="product-left-sidebar.html">
+                                                            <img src="~/assets/images/fashion/product/front/2.jpg"
+                                                                 class="bg-img blur-up lazyload" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="product-details text-center">
+                                                    <div class="rating-details d-block text-center">
+                                                        <span class="font-light grid-content">B&Y Jacket</span>
+                                                    </div>
+                                                    <div class="main-price mt-0 d-block text-center">
+                                                        <h3 class="theme-color">$78.00</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="product-box">
+                                                <div class="img-wrapper">
+                                                    <div class="front">
+                                                        <a href="product-left-sidebar.html">
+                                                            <img src="~/assets/images/fashion/product/front/3.jpg"
+                                                                 class="bg-img blur-up lazyload" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="product-details text-center">
+                                                    <div class="rating-details d-block text-center">
+                                                        <span class="font-light grid-content">B&Y Jacket</span>
+                                                    </div>
+                                                    <div class="main-price mt-0 d-block text-center">
+                                                        <h3 class="theme-color">$78.00</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="product-box">
+                                                <div class="img-wrapper">
+                                                    <div class="front">
+                                                        <a href="product-left-sidebar.html">
+                                                            <img src="~/assets/images/fashion/product/front/4.jpg"
+                                                                 class="bg-img blur-up lazyload" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="product-details text-center">
+                                                    <div class="rating-details d-block text-center">
+                                                        <span class="font-light grid-content">B&Y Jacket</span>
+                                                    </div>
+                                                    <div class="main-price mt-0 d-block text-center">
+                                                        <h3 class="theme-color">$78.00</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cart Successful End -->
+    <!-- Coockie Section Start -->
+    <div class="cookie-bar-section flower-cookirbar d-md-flex d-none">
+        <div class="content">
+            <img src="~/assets/images/cookie.png" alt="">
+            <p class="font-light">This website use cookies to ensure you get the best experience on our website.</p>
+            <div class="cookie-buttons">
+                <button class="btn default-theme" id="button">I understand</button>
+            </div>
+        </div>
+    </div>
+    <!-- Coockie Section End -->
+    <!-- theme Setting Start -->
+    <div class="theme-setting">
+        <ul>
+            <li>
+                <button id="darkButton" class="btn btn-sm dark-buttton">Dark</button>
+            </li>
+            <li>
+                <button class="btn btn-sm rtl-button">RTL</button>
+            </li>
+            <li class="color-picker">
+                <input type="color" class="form-control form-control-color" id="ColorPicker1" value="#df4246"
+                       title="Choose your color">
+            </li>
+        </ul>
+    </div>
+    <!-- theme Setting End -->
+    <!-- tap to top Section Start -->
+    <div class="tap-to-top">
+        <a href="#home">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+    <!-- tap to top Section End -->
+
+    <div class="bg-overlay"></div>
+
+    <!-- latest jquery-->
+    <script src="~/assets/js/jquery-3.5.1.min.js"></script>
+    <script src="~/assets/js/app-js.js" asp-append-version="true"></script>
+
+    <!-- Bootstrap js-->
+    <script src="~/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+
+    <!-- feather icon js-->
+    <script src="~/assets/js/feather/feather.min.js"></script>
+
+    <!-- lazyload js-->
+    <script src="~/assets/js/lazysizes.min.js"></script>
+
+    <!-- Add To Home js -->
+    <script src="~/assets/js/pwa.js"></script>
+
+    <!-- Timer Js -->
+ @*   <script src="~/assets/js/timer1.js" asp-append-version="true"></script>*@
+
+    <!-- Slick js-->
+    <script src="~/assets/js/slick/slick.js"></script>
+    <script src="~/assets/js/slick/slick-animation.min.js"></script>
+    <script src="~/assets/js/slick/custom_slick.js"></script>
+
+    <!-- newsletter js -->
+    <script src="~/assets/js/newsletter.js"></script>
+
+    <!-- add to cart modal resize -->
+    <script src="~/assets/js/cart_modal_resize.js"></script>
+
+    <!-- Notify js-->
+    <script src="~/assets/js/bootstrap/bootstrap-notify.min.js"></script>
+
+    <!-- script js -->
+    <script src="~/assets/js/theme-setting.js"></script>
+    <script src="~/assets/js/script.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+
+<!-- Mirrored from themes.pixelstrap.com/voxo/front-end/flower-demo.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 20 Dec 2022 19:31:26 GMT -->
+</html>

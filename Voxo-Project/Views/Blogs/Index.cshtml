@@ -1,0 +1,142 @@
+﻿@model List<BlogPageVM>
+<!-- Breadcrumb section start -->
+<section class="breadcrumb-section section-b-space">
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3>Blogs</h3>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li >
+                            <a asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">/Blogs</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb section end -->
+<!-- Blog Section Start -->
+<section id="portfolio" class="left-sidebar-section masonary-blog-section section-b-space">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-9 col-md-7 order-md-1 ratio3_2">
+                <div class="row g-4">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card blog-categority">
+                                <a asp-action="Details" asp-route-id="@item.Id" class="blog-img bg-size blur-up lazyloaded" style="background-image: url(&quot;assets/images/inner-page/product/13.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
+                                    <img src="~/assets/images/voxo-blog/@item.ImageUrl" alt="" class="card-img-top blur-up lazyload bg-img" style="display: none;">
+                                </a>
+                                <div class="card-body">
+
+                                    <a asp-action="Details" asp-route-id="@item.Id">
+                                        <h2 class="card-title">
+                                            @item.Title
+                                        </h2>
+                                    </a>
+                                    <div class="blog-profile">
+                                        <div class="image-name">
+                                            <h3>@item.CreatedBy</h3>
+                                            <h6>@item?.CreatedAt?.ToString("dd MMMM yyyy")</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="col-12">
+                    <nav class="page-section">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="javascript:void(0)">
+                                    <span aria-hidden="true">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="javascript:void(0)">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="javascript:void(0)">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="javascript:void(0)">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link">
+                                    <span aria-hidden="true">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-5">
+                <div class="left-side">
+                    <!-- Search Bar Start -->
+                    <div class="search-section">
+                        <div class="input-group search-bar">
+                            <input type="search" class="form-control search-input" placeholder="Search">
+                            <button class="input-group-text search-button" id="basic-addon3">
+                                <i class="fas fa-search text-color"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Search Bar End -->
+                    <!-- Popular Post Start -->
+                    @await Component.InvokeAsync("PopularPosts")
+                    <!-- Popular Post End -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Section End -->
+<!-- Subscribe Section Start -->
+<section class="subscribe-section section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-6">
+                <div class="subscribe-details">
+                    <h2 class="mb-3">Subscribe Our News</h2>
+                    <h6 class="font-light">
+                        Subscribe and receive our newsletters to follow the news about our fresh
+                        and fantastic Products.
+                    </h6>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mt-md-0 mt-3">
+                <div class="subsribe-input">
+                    <div class="input-group">
+                        <input type="text" class="form-control subscribe-input" placeholder="Your Email Address">
+                        <button class="btn btn-solid-default" type="button">Button</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Subscribe Section End -->

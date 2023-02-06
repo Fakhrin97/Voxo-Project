@@ -1,0 +1,205 @@
+﻿@model BlogDetailsVM 
+<!-- Breadcrumb section start -->
+<section class="breadcrumb-section section-b-space">
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3>Blog Details</h3>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li >
+                            <a asp-action="Index">
+                                Blogs
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">/Blog Details</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb section end -->
+<!-- Details Blog Section Start -->
+<section class="masonary-blog-section">
+    <div class="container">
+        <div class="row g-4">
+
+            <div class="col-lg-9 col-md-8 order-md-1 ratio_square">
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="blog-details">
+                            <div class="blog-image-box">
+                                <img src="~/assets/images/voxo-blog/@Model.ImageUrl" alt="" class="card-img-top">
+                                <div class="blog-title">
+                                    <div>
+                                        <div class="social-media media-center">
+                                            <a href="https://www.facebook.com/" target="new">
+                                                <div class="social-icon-box social-color">
+                                                    <i class="fab fa-facebook-f"></i>
+                                                </div>
+                                            </a>
+                                            <a href="https://twitter.com/" target="new">
+                                                <div class="social-icon-box social-color">
+                                                    <i class="fab fa-twitter"></i>
+                                                </div>
+                                            </a>
+                                            <a href="https://in.pinterest.com/" target="new">
+                                                <div class="social-icon-box social-color">
+                                                    <i class="fab fa-pinterest-p"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="blog-detail-contain">
+                                <span class="font-light">@Model.CreatedAt?.ToString(" dd MMMM yyyy")</span>
+                                <h2 class="card-title">@Model.Title</h2>
+                                <p class="font-light firt-latter">
+                                    @Model.Content
+                                </p>
+
+                                <p class="font-light">
+                                    Contrary to popular belief, Lorem Ipsum is not simply random
+                                    text. It has roots in a piece of classical Latin literature from 45 BC, making
+                                    it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
+                                    College in Virginia, looked up one of the more obscure Latin words, consectetur,
+                                    from a Lorem Ipsum passage, and going through the cites of the word in classical
+                                    literature, discovered the undoubtable source. Lorem Ipsum comes from sections
+                                    1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
+                                    Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of
+                                    ethics, very popular during the Renaissance. The first line of Lorem Ipsum,
+                                    "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. The
+                                    standard chunk of Lorem Ipsum used since the 1500s is reproduced below for
+                                    those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et
+                                    Malorum" by Cicero are also reproduced in their exact original form, accompanied
+                                    by English versions from the 1914 translation by H. Rackham.
+                                </p>
+
+                                <p class="font-light">
+                                    It is a long established fact that a reader will be distracted
+                                    by the readable content of a page when looking at its layout. The point of using
+                                    Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+                                    opposed to using 'Content here, content here', making it look like readable
+                                    English. Many desktop publishing packages and web page editors now use Lorem
+                                    Ipsum as their default model text, and a search for 'lorem ipsum' will uncover
+                                    many web sites still in their infancy. Various versions have evolved over the
+                                    years, sometimes by accident, sometimes on purpose injected humour and the
+                                    like.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="blog-profile box-center mb-lg-5 mb-4">
+                            <div class="image-profile">
+                                <img src="~/assets/images/inner-page/review-image/2.jpg"
+                                     class="img-fluid blur-up lazyload" alt="">
+                            </div>
+
+                            <div class="image-name text-weight">
+                                <h3>John wike</h3>
+                                <h6>15 Aug 2021</h6>
+                            </div>
+                        </div>
+
+                        <div class="row g-2">
+                            <div class="col-12">
+                                <div class="minus-spacing mb-2">
+                                    <h3>Leave Comments</h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <label for="fname" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="fname" placeholder="Enter First Name"
+                                       required>
+                            </div>
+                            <div class="col-lg-4">
+                                <label for="lname" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lname" placeholder="Enter Last Name"
+                                       required>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email"
+                                       placeholder="example@example.com" required>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="textarea" class="form-label">Comments</label>
+                                <textarea rows="3" class="form-control" id="textarea"
+                                          placeholder="Leave a comment here" required></textarea>
+                            </div>
+
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-solid-default btn-spacing mt-2">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+                <div class="left-side">
+                    <!-- Search Bar Start -->
+                    <div class="search-section">
+                        <div class="input-group search-bar">
+                            <input type="search" class="form-control search-input" placeholder="Search">
+                            <button class="input-group-text search-button" id="basic-addon3">
+                                <i class="fas fa-search text-color"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Search Bar End -->
+                    <!-- Popular Post Start -->
+                    @await Component.InvokeAsync("PopularPosts")
+                    <!-- Popular Post End -->                 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Details Blog Section End -->
+<!-- related blog start -->
+@await Component.InvokeAsync("BlogsSlider")
+<!-- related blog end -->
+<!-- Popular Posts Section Start -->
+<section class="subscribe-section section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-6">
+                <div class="subscribe-details">
+                    <h2 class="mb-3">Subscribe Our News</h2>
+                    <h6 class="font-light">
+                        Subscribe and receive our newsletters to follow the news about our fresh
+                        and fantastic Shoes Products.
+                    </h6>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mt-md-0 mt-3">
+                <div class="subsribe-input">
+                    <div class="input-group">
+                        <input type="text" class="form-control subscribe-input" placeholder="Your Email Address">
+                        <button class="btn btn-solid-default" type="button">Button</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Popular Posts Section End -->

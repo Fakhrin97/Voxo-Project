@@ -1,0 +1,31 @@
+﻿@model List<BlogPageVM>
+<section class="section-b-space block-shadow-space ratio3_2">
+    <div class="container">
+        <div class="slide-4 product-wrapper slick-lg-space">
+            @foreach (var item in Model)
+            {
+            <div>
+                <div class="card blog-categority">
+                    <a asp-controller="Blogs" asp-action="Details" asp-route-id="@item.Id" class="blog-img">
+                        <img src="~/assets/images/voxo-blog/@item.ImageUrl" alt=""
+                             class="card-img-top blur-up lazyload bg-img">
+                    </a>
+                    <div class="card-body">
+                            <a asp-controller="Blogs" asp-action="Details" asp-route-id="@item.Id">
+                            <h2 class="card-title">
+                                @item.Title
+                            </h2>
+                        </a>
+                        <div class="blog-profile">
+                            <div class="image-name">
+                                <h3>@item.CreatedBy</h3>
+                                    <h6>@item.CreatedAt?.ToString("dd MMMM yyyy")</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+            }
+        </div>
+    </div>
+</section>

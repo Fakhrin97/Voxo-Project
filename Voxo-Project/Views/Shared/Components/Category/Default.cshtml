@@ -1,0 +1,46 @@
+﻿@model List<CategoryVM>
+@if (Model.Count != 0)
+{
+    <section class="category-section ratio_40">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title title-2 text-center">
+                        <h2>Our Category</h2>
+                        <h5>Our collection</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row gy-3">
+                <div class="col-xxl-2 col-lg-3">
+                    <div class="category-wrap category-padding theme-bg-color">
+                        <div>
+                            <h2 class="light-text">Top</h2>
+                            <h2>Our Top</h2>
+                            <span>Categories</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-10 col-lg-9">
+                    <div class="category-wrapper category-slider1 white-arrow product-wrapper">
+                        @foreach (var item in Model)
+                        {
+                        <div>
+                            <a href="shop-left-sidebar.html" class="category-wrap">
+                                <img src="~/assets/images/voxo-category/@item.ImageUrl" class="bg-img blur-up lazyload"
+                                     alt="category image">
+                                <div class="category-content category-spacing">
+                                    <h3 class="theme-color">@item.Name</h3>
+                                   
+                                </div>
+                            </a>
+                        </div>
+                            
+                        }
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}

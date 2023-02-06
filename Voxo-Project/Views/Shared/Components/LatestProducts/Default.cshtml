@@ -1,0 +1,91 @@
+﻿@model List<LatestProductsVM>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<section class="ratio_asos">
+    <div class="container p-sm-0">
+        <div class="row m-0">
+            <div class="col-sm-12 p-0">
+                <div class="title title-2 text-center">
+                    <h2>Latest Product</h2>
+                    <h5>Our Collection</h5>
+                </div>
+                <div class="product-wrapper slide-5_1">
+                    @foreach (var product in Model)
+                    {
+                        <div>
+                            <div class="product-box">
+                                <div class="img-wrapper">
+                                    <a asp-controller="Shop" asp-action="Details" asp-route-id="@product.Id">
+                                        <img src="~/assets/images/voxo-product/@product.Images[0].Name"
+                                             class="img-fluid bg-img blur-up lazyload" alt="">
+                                    </a>
+                                    <div class="label-block">
+                                        <span class="label label-black">New</span>
+                                        <span class="label label-theme">@product.DiscountDegree% Off</span>
+                                    </div>
+                                    <div class="cart-wrap">
+                                        <ul>
+                                            <li>
+                                                <input type="hidden" value="@product.Id" />
+                                            </li>
+                                            <li>
+                                                <a id="add-product-to-cart" class="addtocart-btn">
+                                                    <i data-feather="shopping-bag"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a id="prdouct-compare">
+                                                    <i data-feather="refresh-cw"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a id="prdouct-favori">
+                                                    @if (product.IsFavori)
+                                                    {
+                                                        <i id=@("favorite"+product.Id) style="color:red" class="fa-solid fa-heart"></i>
+                                                    }
+                                                    else
+                                                    {
+                                                        <i id=@("favorite"+product.Id) style="color:red" class="fa-regular fa-heart"></i>
+                                                    }
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-details text-center">
+                                    <h3 class="theme-color">
+                                        $@product.Price
+                                        <span class="font-light ml-1">$@(product.Price * (100 - product.DiscountDegree) / 100)</span>
+                                    </h3>
+                                    <a asp-controller="Shop" asp-action="Details" asp-route-id="@product.Id" class="font-default">
+                                        <h5>@product.Name</h5>
+                                    </a>
+                                    <ul class="rating">
+                                        <li>
+                                            <i class="fas fa-star theme-color"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star theme-color"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star theme-color"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

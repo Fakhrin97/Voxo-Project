@@ -1,0 +1,120 @@
+﻿@model UserCreateVM
+<div class="page-body">
+    <div class="title-header">
+        <h5>Add New User</h5>
+    </div>
+    <!-- New User Add Start -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                
+                                <form class="theme-form theme-form-2 mega-form"
+                                      method="post" asp-action="Create" >
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="row">
+                                        <div class="mb-4 row align-items-center">
+                                            <label asp-for="Username" class="form-label-title col-sm-2 mb-0">
+                                                Username
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" asp-for="Username"
+                                                       placeholder="Username">
+                                            </div>
+                                            <span asp-validation-for="Username" class="text-danger"></span>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label asp-for="Firstname" class="form-label-title col-sm-2 mb-0">
+                                                Firstname
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" asp-for="Firstname"
+                                                          placeholder="Firstname">
+                                            </div>
+                                            <span asp-validation-for="Firstname" class="text-danger"></span>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label asp-for="Lastname" class="form-label-title col-sm-2 mb-0">
+                                                Lastname
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" asp-for="Lastname"
+                                                       placeholder="Lastname">
+                                            </div>
+                                            <span asp-validation-for="Lastname" class="text-danger"></span>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label asp-for="Email" class="form-label-title col-sm-2 mb-0">
+                                                Email
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" asp-for="Email"
+                                                       placeholder="Email">
+                                            </div>
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>
+                                       
+                                        <div class="mb-4 row align-items-center" data-select2-id="select2-data-43-2xpk">
+                                            <label asp-for="Role" class="form-label-title col-sm-2 mb-0">
+                                                Role
+                                            </label>
+                                            <div class="col-sm-10" data-select2-id="select2-data-42-fgcl">
+                                                <select asp-for="Role" asp-items="Model.Roles" class="js-example-basic-single w-100 select2-hidden-accessible" n data-select2-id="select2-data-1-oghe" tabindex="-1" aria-hidden="true"></select>
+                                            </div>
+                                            <span asp-validation-for="Role" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label asp-for="Password" class="form-label-title col-sm-2 mb-0">
+                                                Password
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" asp-for="Password"
+                                                       placeholder="Password">
+                                            </div>
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label asp-for="ConfirmPassword" class="form-label-title col-sm-2 mb-0">
+                                                Confirm Password
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" asp-for="ConfirmPassword"
+                                                       placeholder="Confirm Password">
+                                            </div>
+                                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                        <a class="btn btn-light" asp-action="Index">Cancel</a>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Product Add End -->
+    <!-- footer Start -->
+    <div class="container-fluid">
+        <footer class="footer">
+            <div class="row">
+                <div class="col-md-12 footer-copyright text-center">
+                    <p class="mb-0">Copyright 2021 © Voxo theme by pixelstrap</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- footer En -->
+</div>
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js" integrity="sha512-xq+Vm8jC94ynOikewaQXMEkJIOBp7iArs3IhFWSWdRT3Pq8wFz46p+ZDFAR7kHnSFf+zUv52B3prRYnbDRdgog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}

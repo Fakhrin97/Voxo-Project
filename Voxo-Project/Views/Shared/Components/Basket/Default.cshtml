@@ -1,0 +1,69 @@
+﻿@model List<BasketProductVM>
+@{
+    var product = Model;
+    decimal totalPrice = 0;
+    foreach (var item in product)
+    {
+        totalPrice = totalPrice + (item.Price * item.Count);
+    }
+}
+<li class="onhover-dropdown cart-dropdown">
+    <a asp-controller="Basket" asp-action="Index" class ="btn btn-solid-default btn-spacing">   
+        <i data-feather="shopping-cart" class="pe-2"></i>
+        <span style="color:#fff">@totalPrice</span>
+</a> 
+    <div class="onhover-div">
+        <div class="cart-menu">
+            <div class="cart-title">
+                <h6>
+                    <i data-feather="shopping-bag"></i>
+                    <span class="label label-theme rounded-pill">@product.Count</span>
+                </h6>
+                <span class="d-md-none d-block">
+                    <i class="fas fa-arrow-right back-cart"></i>
+                </span>
+            </div>
+            <ul class="custom-scroll">
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <div class="media">
+                            <img src="~/assets/images/voxo-product/@item.Images[0].Name"
+                                 class="img-fluid blur-up lazyload" alt="">
+                            <div class="media-body">
+                                <h6>@item.Name</h6>
+                                <div class="qty-with-price">
+                                    <span>$@item.Price</span>
+                                    <span>
+                                    <input type="hidden" value="@item.Id"/>
+                                        <input id="product-quality-from-icon" type="number" class="form-control"
+                                               value="@item.Count">
+                                    </span>
+                                </div>
+                            </div>
+                            <button type="button"
+                                    class="btn-close d-block d-md-none"
+                                    aria-label="Close">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="cart-btn">
+            <h6 class="cart-total">
+                <span class="font-light">Total:</span> $
+               totolPrice
+            </h6>
+            <button onclick="location.href = 'cart.html';" type="button"
+                    class="btn btn-solid-default btn-block">
+                Proceed to payment
+            </button>
+        </div>
+    </div>
+</li>
+@section Scripts{
+    <script>
+    </script>
+}

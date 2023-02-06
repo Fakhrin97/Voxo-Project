@@ -1,0 +1,85 @@
+﻿
+@model BlogCreateVM
+<div class="page-body">
+    <div class="title-header">
+        <h5>Add New Blog</h5>
+    </div>
+
+    <!-- New Product Add Start -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header-2">
+                                    <h5>Blog Information</h5>
+                                </div>
+                                <form class="theme-form theme-form-2 mega-form"
+                                      method="post" asp-action="Create" enctype="multipart/form-data">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                                    <div class="row">
+                                        <div class="mb-4 row align-items-center">
+                                            <label asp-for="Title" class="form-label-title col-sm-2 mb-0">
+                                                Blog
+                                                Title
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" asp-for="Title"
+                                                       placeholder="Blog Title">
+                                            </div>
+                                            <span asp-validation-for="Title" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label asp-for="Content" class="form-label-title col-sm-2 mb-0">
+                                                Blog
+                                                Content
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" asp-for="Content"
+                                                       placeholder="Blog Content">
+                                            </div>
+                                            <span asp-validation-for="Content" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-2 col-form-label form-label-title" asp-for="Image">Image</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control form-choose" asp-for="Image"
+                                                       id="formFileMultiple" accept="image/*">
+                                            </div>
+                                            <span asp-validation-for="Image" class="text-danger"></span>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                        <button class="btn btn-light" asp-action="Index">Cancel</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Product Add End -->
+    <!-- footer Start -->
+    <div class="container-fluid">
+        <footer class="footer">
+            <div class="row">
+                <div class="col-md-12 footer-copyright text-center">
+                    <p class="mb-0">Copyright 2021 © Voxo theme by pixelstrap</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- footer En -->
+</div>
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js" integrity="sha512-xq+Vm8jC94ynOikewaQXMEkJIOBp7iArs3IhFWSWdRT3Pq8wFz46p+ZDFAR7kHnSFf+zUv52B3prRYnbDRdgog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}

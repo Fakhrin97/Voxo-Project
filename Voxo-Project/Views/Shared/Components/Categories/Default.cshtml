@@ -1,0 +1,29 @@
+﻿@model List<CategoryVM>
+@if (Model.Count != 0)
+{
+    <div class="menu-left">
+        <div class="category-menu">
+            <button type="button"
+                    class="btn btn-solid-default toggle-category d-sm-block d-none">
+                All categories
+                <i class="fas fa-chevron-down d-xl-inline-block d-none"></i>
+            </button>
+            <div class="category-dropdown">
+                <div class="close-btn d-xl-none">
+                    Category List
+                    <span class="back-category">
+                        <i class="fa fa-angle-left"></i>
+                    </span>
+                </div>
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                    <li >
+                        <a asp-controller="Shop" asp-action="Index" asp-route-categoryId="@item.Id">@item.Name</a>
+                    </li>   
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+}

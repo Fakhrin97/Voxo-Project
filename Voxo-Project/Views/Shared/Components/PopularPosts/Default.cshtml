@@ -1,0 +1,28 @@
+﻿@model List<PopularBlogsVM>
+@{
+    var count = 0;
+}
+<div class="popular-post mt-4">
+    <div class="popular-title">
+        <h3>Popular Posts</h3>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="popular-image">
+
+            <div class="popular-number">
+                <h4 class="theme-color">@(count= count + 1)</h4>
+            </div>
+            <div class="popular-contain">
+                <h3>@item.Title</h3>
+
+                <div class="review-box">
+                    <span class="font-light clock-time"><i data-feather="clock"></i>@item.CreatedAt?.ToString("MM/dd/yyyy")</span>
+                    <span class="font-light eye-icon"><i data-feather="eye"></i>@item.ViewersCount</span>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

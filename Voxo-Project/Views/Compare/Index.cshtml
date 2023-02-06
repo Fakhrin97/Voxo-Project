@@ -1,0 +1,192 @@
+﻿@model List<CompareVM>
+<!-- Breadcrumb section start -->
+<section class="breadcrumb-section section-b-space">
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3>Compare</h3>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">/Compare</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb section end -->
+<!-- Compare Section Start -->
+<section class="section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="comparemodal-body">
+                    <div class="table-wrapper table-responsive ratio_asos">
+                        @if(Model.Count != 0)
+                        {
+                        <table class="table table-striped-1">
+                            <tbody>
+                                <tr class="table-product-details">
+                                    <td></td>
+                                    @foreach (var item in Model)
+                                    {
+                                        <td>
+                                            <div class="product-box">
+                                                <div class="product-image">
+                                                    <a class="w-100 blur-up lazyload" href="javascript:void(0)">
+                                                        <img src="~/assets/images/voxo-product/@item.ImageUrl"
+                                                             class="img-fluid bg-img blur-up lazyload" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="product-details">
+                                                    <div>
+                                                        <a href="javascript:void(0)">
+                                                            <h6 class="fw-bold">
+                                                                @item.Name
+                                                            </h6>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="price-details mt-2">
+                                                        <h6 class="font-green">
+                                                            $@item.DiscountAmount
+                                                            <span class="font-light mx-2">$@item.Price</span>
+                                                            <span class="theme-color">@item.DiscountDegree% off</span>
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                    }
+
+
+                                </tr>
+
+                                <tr class="table-cart-button">
+                                    <td></td>
+                                    @foreach (var item in Model)
+                                    {
+                                        <td>
+                                            <a href="cart.html" class="btn btn-solid-blue">+ Add to cart</a>
+
+                                        </td>
+                                    }
+                                </tr>
+
+                                <tr>
+                                    <td>Customer Rating</td>
+                                    @foreach (var item in Model)
+                                    {
+                                        <td>
+                                            <div class="d-flex align-items-center my0">
+                                                <ul class="rating my-0">
+                                                    <li>
+                                                        <i class="fas fa-star theme-color"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star theme-color"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                </ul>
+
+                                                <span class="font-light ms-2">(22 reviews)</span>
+                                            </div>
+                                        </td>
+                                    }
+
+                                </tr>
+
+                                <tr>
+                                    <td>CATEGORY</td>
+                                    @foreach (var item in Model)
+                                    {
+                                        <td>@item.Cayegory</td>
+                                    }
+
+                                </tr>
+
+                                <tr>
+                                    <td>Weight</td>
+                                    @foreach (var item in Model)
+                                    {
+                                        <td>@item.Weight</td>
+
+                                    }
+                                </tr>
+
+                                <tr>
+                                    <td>Date First Available</td>
+                                    @foreach (var item in Model)
+                                    {
+                                        <td>@(item.DateFirstAvailable.ToString("MM MMM MMMM"))</td>
+                                    }
+
+                                </tr>
+                                <tr>
+                                    <td>Action</td>
+                                    @foreach (var item in Model)
+                                    {
+                                        <td id=@(item.Id+"compare")>
+                                            <input type="hidden" value="@item.Id"/>
+                                            <a id="remove-product-from-compare"  style="color:red" class="icon">
+                                                <i class="fas fa-times"></i>
+                                            </a>
+                                        </td>
+                                    }
+                                </tr>
+                            </tbody>
+                        </table>
+                            
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Compare Section End -->
+@section Scripts{
+    <script>
+        $(document).on('click', '#remove-product-from-compare', function () {
+            var productId = $(this).parent().children().val();
+            console.log(productId)
+            $.ajax({
+                type: "POST",
+                url: "/Compare/DeleteProductFromCompare",
+                data: { productId: productId },
+                success: function () {
+                    $("#" + productId + "compare").remove();
+                },
+                Error: function () {
+                    alert("Somthing Wrong");
+                }
+            });
+        });
+    </script>
+}

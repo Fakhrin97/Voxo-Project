@@ -1,0 +1,236 @@
+﻿@model ProductUpdateVM
+<div class="page-body">
+    <div class="title-header">
+        <h5>Update Product</h5>
+    </div>
+    <!-- New Product Add Start -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header-2">
+                                    <h5>Product Information</h5>
+                                </div>
+                                <form class="theme-form theme-form-2 mega-form"
+                                      method="post" asp-action="Update" enctype="multipart/form-data">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="row">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-lg-2 col-md-3 mb-0">Status</label>
+                                            <div class="col-md-9">
+                                                <div class="form-check user-checkbox ps-0">
+                                                    <input class="checkbox_animated check-it"
+                                                           asp-for="Published" id="flexCheckDefault">
+                                                    <label asp-for="Published" class="form-label-title col-md-2 mb-0">
+                                                        Is Deleted
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label asp-for="Name" class="form-label-title col-sm-2 mb-0">
+                                                Product
+                                                Name
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" asp-for="Name"
+                                                       placeholder="Product Name">
+                                            </div>
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label asp-for="Description" class="form-label-title col-sm-2 mb-0">
+                                                Product
+                                                Description
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <textarea class="form-control" asp-for="Description"
+                                                          placeholder="Product Description"></textarea>
+                                            </div>
+                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label asp-for="Weight" class="form-label-title col-sm-2 mb-0">
+                                                Product
+                                                Weight
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" asp-for="Weight"
+                                                       placeholder="Product Weight">
+                                            </div>
+                                            <span asp-validation-for="Weight" class="text-danger"></span>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label asp-for="Manufacturer‏" class="form-label-title col-sm-2 mb-0">
+                                                Product
+                                                Manufacturer‏
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" asp-for="Manufacturer‏"
+                                                       placeholder="Product Manufacturer‏">
+                                            </div>
+                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label asp-for="Price" class="form-label-title col-sm-2 mb-0">
+                                                Product
+                                                Price
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" asp-for="Price"
+                                                       placeholder="Product Price">
+                                            </div>
+                                            <span asp-validation-for="Price" class="text-danger"></span>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label asp-for="DiscountDegree" class="form-label-title col-sm-2 mb-0">
+                                                Product
+                                                Discount Degree
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" asp-for="DiscountDegree"
+                                                       placeholder="Product Discount Degree">
+                                            </div>
+                                            <span asp-validation-for="DiscountDegree" class="text-danger"></span>
+                                        </div>
+                                        <div class="mb-4 row align-items-center" data-select2-id="select2-data-43-2xpk">
+                                            <label asp-for="CategoryId" class="form-label-title col-sm-2 mb-0">
+                                                Product
+                                                Category
+                                            </label>
+                                            <div class="col-sm-10" data-select2-id="select2-data-42-fgcl">
+                                                <select asp-for="CategoryId" asp-items="Model.Categories" class="js-example-basic-single w-100 select2-hidden-accessible" n data-select2-id="select2-data-1-oghe" tabindex="-1" aria-hidden="true"></select>
+                                            </div>
+                                            <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                        </div>
+                                        <input asp-for="RemovedImagesIds" type="hidden" />
+                                        <div class="row">
+                                            <div class="mb-4 row align-items-center">
+                                                <label class="col-sm-2 col-form-label form-label-title" asp-for="Images">Images</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control form-choose" asp-for="Images"
+                                                           id="formFileMultiple" accept="image/*">
+                                                </div>
+                                                <span asp-validation-for="Images" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive table-details">
+                                            <table class="table cart-table table-borderless">
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="2">Images</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if (Model.ProductImages is not null)
+                                                    {
+                                                        foreach (var img in Model.ProductImages)
+                                                        {
+                                                            <tr class="table-order">
+                                                                <td>
+                                                                    <img style="width:100px;" src="~/assets/images/voxo-product/@img.Name"
+                                                                         class="img-fluid blur-up lazyload remove-product-image" alt="">
+                                                                </td>
+                                                                <td>
+                                                                    <button type="button" data-id="@img.Id" class="btn btn-danger mr-2 remove-product-image" data-bs-original-title="" title=""><i class="far fa-trash-alt theme-color"></i></button>
+                                                                    @*<input name="__RequestVerificationToken" type="hidden" value="CfDJ8JEBumo5RuRBlyNJow6lFVQ-H3vO1L2IYAm75Zd_SlfBomAorIvbELdcilO6yrB53Rr0KJJZzg0ksgC1gC5B1M8mVtTtY7_7u_pgoyGBdr3QQpbOwcgQpWz9sCDEFFgbx0Jyhgdrln8pOqiiRENIPt4" data-bs-original-title="" title="">*@
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                        <a class="btn btn-light" asp-action="Index">Cancel</a>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Product Add End -->
+    <!-- footer Start -->
+    <div class="container-fluid">
+        <footer class="footer">
+            <div class="row">
+                <div class="col-md-12 footer-copyright text-center">
+                    <p class="mb-0">Copyright 2021 © Voxo theme by pixelstrap</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- footer En -->
+</div>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js" integrity="sha512-xq+Vm8jC94ynOikewaQXMEkJIOBp7iArs3IhFWSWdRT3Pq8wFz46p+ZDFAR7kHnSFf+zUv52B3prRYnbDRdgog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+        const removeLastestImage = (ev, fileIndex) => {
+
+            const dt = new DataTransfer();
+            const productImagesInput = document.getElementById("formFileMultiple");
+
+            [...productImagesInput.files].filter((file, index) => {
+                if (index == fileIndex) return;
+                dt.items.add(file);
+            })
+
+            productImagesInput.files = dt.files;
+            ev.target.closest("tr").remove();
+        };
+
+        $(document).ready(function () {
+
+            const productImagesInput = document.getElementById("formFileMultiple");
+
+            productImagesInput.addEventListener("change", function (e) {
+
+                const images = e.target.files;
+
+                [...images].forEach((image, fileIndex) => {
+
+                    if (image.type.match("image")) {
+                        const reader = new FileReader();
+                        reader.readAsDataURL(image);
+
+                        reader.addEventListener("load", function (e) {
+                            $("tbody").append(`
+                                                 <tr class="table-order">
+                                                     <td>
+                                                         <img style="width:100px;" src="${e.target.result}"
+                                                              class="img-fluid blur-up lazyload" alt="">
+                                                     </td>
+                                                     <td>
+                                                                                 <button type="button" onClick="removeLastestImage(event,${fileIndex})" class="btn btn-danger mr-2 " data-bs-original-title="" title=""><i class="far fa-trash-alt theme-color"></i></button>
+                                                     </td>
+                                                 </tr>
+                                                    `)
+                        });
+                    };
+
+                });
+            });
+
+            const removedImagesIds = [];
+
+            $(".remove-product-image").click(function (e) {
+                const imgId = $(this).data("id")
+                removedImagesIds.push(imgId);
+                $("#RemovedImagesIds").val(removedImagesIds)
+                $(this).attr("disabled", "disabled")
+
+            });
+        });
+    </script>
+}
+

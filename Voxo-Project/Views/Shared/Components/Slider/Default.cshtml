@@ -1,0 +1,39 @@
+﻿@model SliderHomeVM
+
+@if (Model != null)
+{
+    <section class="pt-0 poster-section-5">
+        <div class="poster-image slider-for custome-arrow classic-arrow-1">
+            @foreach (var item in Model.SliderImages)
+            {
+            <div>
+                    <img src="~/assets/images/voxo-slider/@item.ImageUrl" class="img-fluid blur-up lazyload" alt="">
+            </div>                
+            }          
+        </div>
+        <div class="background-circle">
+            <img src="~/assets/images/voxo-slider/@Model.BackGroundImage" class="img-fluid blur-up lazyload" alt="">
+        </div>
+
+        <div class="flower-image">
+            <img src="~/assets/images/voxo-slider/@Model.CornerImage" class="flower-1 blur-up lazyload" alt="">
+            <img src="~/assets/images/voxo-slider/@Model.CornerImage" class="flower-2 blur-up lazyload" alt="">
+        </div>
+
+        <div class="slider-nav image-show">
+        </div>
+
+        <div class="left-side-contain">
+            <div class="banner-left mb-0">
+                <h4>Sale <span class="theme-color">@Model.DiscountDegree% Off</span></h4>
+                <h1>New Fresh <span>@Model.Name</span></h1>
+                @if (Model?.FreeDeliver == null)
+                {
+                    <p>BUY ONE GET ONE <span class="theme-color">FREE</span></p>
+                }
+                <h2>$@Model?.Price <span class="theme-color"><del>$@((100 - Model?.DiscountDegree) * @Model?.Price / 100)</del></span></h2>
+                <p class="poster-details">@Model?.Title.</p>
+            </div>
+        </div>
+    </section>
+}

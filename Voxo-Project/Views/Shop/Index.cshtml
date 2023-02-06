@@ -1,0 +1,387 @@
+﻿@model ShopPageVM
+@{
+    var products = Model.Products;
+    var categories = Model.Categories;
+    var mostPapularProduct = Model.MostPapularProducts;
+}
+
+<!-- mobile fix menu start -->
+<div class="mobile-menu d-sm-none">
+    <ul>
+        <li>
+            <a href="index.html">
+                <i data-feather="home"></i>
+                <span>Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" class="toggle-category">
+                <i data-feather="align-justify"></i>
+                <span>Category</span>
+            </a>
+        </li>
+        <li>
+            <a href="cart.html">
+                <i data-feather="shopping-bag"></i>
+                <span>Cart</span>
+            </a>
+        </li>
+        <li>
+            <a href="wishlist.html">
+                <i data-feather="heart"></i>
+                <span>Wishlist</span>
+            </a>
+        </li>
+        <li>
+            <a href="user-dashboard.html">
+                <i data-feather="user"></i>
+                <span>Account</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- mobile fix menu end -->
+<!-- Breadcrumb section start -->
+<section class="breadcrumb-section section-b-space">
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3>Shop Listing</h3>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">/Shop</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb section end -->
+<!-- Shop Section start -->
+<section class="section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="category-option">
+                    <div class="button-close mb-3">
+                        <button class="btn p-0"><i data-feather="arrow-left"></i> Close</button>
+                    </div>
+                    <div class="accordion category-name" id="accordionExample">
+
+                        <div class="accordion-item category-rating">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne">
+                                    Category
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show"
+                                 aria-labelledby="headingOne">
+                                <div class="accordion-body category-scroll">
+                                    <ul class="category-list">
+                                        @foreach (var item in categories)
+                                        {
+                                            <li>
+                                                <div class="form-check ps-0 custome-form-check">
+                                                    <input class="checkbox_animated check-it" type="checkbox"
+                                                           id="flexCheckDefault10">
+                                                    <label class="form-check-label"
+                                                           for="flexCheckDefault10">@item.Name</label>
+                                                    <p class="font-light">(25)</p>
+                                                </div>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item category-price">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFour">
+                                    Price
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse show"
+                                 aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="range-slider category-list">
+                                        <input type="text" class="js-range-slider" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFive">
+                                    Discount Range
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse show"
+                                 aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <ul class="category-list">
+                                        <li>
+                                            <div class="form-check ps-0 custome-form-check">
+                                                <input class="checkbox_animated check-it" type="checkbox"
+                                                       id="flexCheckDefault19">
+                                                <label class="form-check-label" for="flexCheckDefault19">
+                                                    5% and
+                                                    above
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check ps-0 custome-form-check">
+                                                <input class="checkbox_animated check-it" type="checkbox"
+                                                       id="flexCheckDefault20">
+                                                <label class="form-check-label" for="flexCheckDefault20">
+                                                    10% and
+                                                    above
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check ps-0 custome-form-check">
+                                                <input class="checkbox_animated check-it" type="checkbox"
+                                                       id="flexCheckDefault21">
+                                                <label class="form-check-label" for="flexCheckDefault21">
+                                                    20% and
+                                                    above
+                                                </label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slider section start -->
+                        <div class="most-popular">
+                            <div class="title title-2 text-lg-start">
+                                <h3>Most Popular</h3>
+                            </div>
+
+                            <div class="product-slider round-arrow1">
+                                <div>
+                                    @for (int i = 0; i < 3; i++)
+                                    {
+                                        <div class="row g-3">
+                                            <div class="col-12">
+                                                <div class="product-image">
+                                                    <a asp-controller="Shop" asp-action="Details" asp-route-id="@mostPapularProduct[i].Id">
+                                                        <img src="~/assets/images/voxo-product/@mostPapularProduct[i]?.Images[0]?.Name"
+                                                             class="blur-up lazyload" alt="">
+                                                    </a>
+                                                    <div class="product-details">
+                                                        <h6 class="font-light">@mostPapularProduct[i]?.Category?.Name</h6>
+                                                        <a asp-controller="Shop" asp-action="Details" asp-route-id="@mostPapularProduct[i].Id" class="">
+                                                            <h3>@mostPapularProduct[i]?.Name</h3>
+                                                        </a>
+                                                        <h4 class="font-light mt-1">
+                                                            <del>$@mostPapularProduct[i]?.Price</del> <span class="theme-color">$35.50</span>
+                                                        </h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                                <div>
+                                    @for (int i = 3; i < 6; i++)
+                                    {
+                                        <div class="row g-3">
+                                            <div class="col-12">
+                                                <div class="product-image">
+                                                    <a asp-controller="Shop" asp-action="Details" asp-route-id="@mostPapularProduct[i].Id">
+                                                        <img src="~/assets/images/voxo-product/@mostPapularProduct[i]?.Images[0]?.Name"
+                                                             class="blur-up lazyload" alt="">
+                                                    </a>
+                                                    <div class="product-details">
+                                                        <h6 class="font-light">@mostPapularProduct[i]?.Category?.Name</h6>
+                                                        <a asp-controller="Shop" asp-action="Details" asp-route-id="@mostPapularProduct[i].Id" class="">
+                                                            <h3>@mostPapularProduct[i]?.Name</h3>
+                                                        </a>
+                                                        <h4 class="font-light mt-1">
+                                                            <del>$@mostPapularProduct[i]?.Price</del> <span class="theme-color">$35.50</span>
+                                                        </h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slider Section End -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9 col-12 ratio_30">
+                <div class="banner-deatils">
+                    <div class="banner-image">
+                        <img src="~/assets/images/fashion/banner.jpg" class="img-fluid bg-img blur-up lazyload"
+                             alt="">
+                        <div class="banner-content">
+                            <div>
+                                <h3>Shop The Latest Trends</h3>
+                                <p>
+                                    Shop the latest clothing trends with our weekly edit of what's new in online at
+                                    Voxo. From out latest woman collection.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-contain mt-3 mb-5">
+                        <p class="font-light">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and scrambled it to make a type specimen
+                            book. It has survived not only five centuries, but also the leap into electronic
+                            typesetting, remaining essentially unchanged.
+                        </p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                </div>
+                <!-- label and featured section -->
+                <!-- Prodcut setion -->
+                <div class="row g-sm-4 g-3 row-cols-lg-4 row-cols-md-3 row-cols-2 mt-1 custom-gy-5 product-style-2 ratio_asos product-list-section">
+                    @foreach (var item in products)
+                    {
+                        <div>
+                            <div class="product-box">
+                                <div class="img-wrapper">
+                                    <div class="front">
+                                        <a asp-controller="Shop" asp-action="Details" asp-route-id="@item.Id">
+                                            <img src="~/assets/images/voxo-product/@item.Images[0].Name"
+                                                 class="bg-img blur-up lazyload" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a asp-controller="Shop" asp-action="Details" asp-route-id="@item.Id">
+                                            <img src="~/assets/images/voxo-product/@item.Images[0].Name"
+                                                 class="bg-img blur-up lazyload" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="cart-wrap">
+                                        <ul>
+                                            <li>
+                                                <input type="hidden" value="@item.Id" />
+                                            </li>
+                                            <li>
+                                                <a id="add-product-to-cart"
+                                                   data-bs-target="#addtocart">
+                                                    <i data-feather="shopping-bag"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a id="prdouct-compare">
+                                                    <i data-feather="refresh-cw"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a id="prdouct-favori">
+                                                    @if (item.IsFavori)
+                                                    {
+                                                        <i id=@("favorite"+item.Id) style="color:red" class="fa-solid fa-heart"></i>
+                                                    }
+                                                    else
+                                                    {
+                                                        <i id=@("favorite"+item.Id) style="color:red" class="fa-regular fa-heart"></i>
+                                                    }
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-details">
+                                    <div class="rating-details">
+                                        <span class="font-light grid-content">@item.Category.Name</span>
+                                        <ul class="rating mt-0">
+                                            <li>
+                                                <i class="fas fa-star theme-color"></i>
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-star theme-color"></i>
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-star"></i>
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-star"></i>
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-star"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="main-price">
+                                        <a asp-controller="Shop" asp-action="Details" asp-route-id="@item.Id" class="font-default">
+                                            <h5 class="ms-0">@item.Name</h5>
+                                        </a>
+
+                                        <h3 class="theme-color">$@item.Price</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <!-- Prodcut setion -->
+
+                <nav class="page-section">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:void(0)" aria-label="Previous">
+                                <span aria-hidden="true">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="javascript:void(0)">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:void(0)">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:void(0)">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" aria-label="Next">
+                                <span aria-hidden="true">
+                                    <i class="fas fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop Section end -->
