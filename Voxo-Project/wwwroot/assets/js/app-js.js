@@ -64,6 +64,23 @@ $(document).on('change', '#product-quality-from-icon', function () {
 
 });
 
+var searchInput = document.getElementById("search-procucts");
+if (searchInput) {
+    searchInput.addEventListener("keyup", function () {
+
+        let text = this.value
+
+        let productList = document.querySelector("#product-list")
+        fetch('Shop/Search?searchText=' + text)
+            .then((response) => response.text())
+            .then((data) => {
+                productList.innerHTML = data
+            });
+       
+
+    });
+}
+
 
 
 

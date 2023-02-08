@@ -1,0 +1,35 @@
+﻿@model List<ProductVM>
+@foreach (var item in Model)
+{
+    <ul style="z-index:2" class="custom-scroll">
+        <li>
+            <div class="product-cart media">
+                <img src="~/assets/images/voxo-product/@item.Images[0].Name"
+                     class="img-fluid blur-up lazyload" alt="">
+                <div class="media-body">
+                    <a asp-controller="Shop" asp-action="Details" asp-route-id="@item.Id">
+                        <h6 class="mb-1">@item.Name</h6>
+                    </a>
+                    <ul class="rating">
+                        <li>
+                            <i class="fas fa-star theme-color"></i>
+                        </li>
+                        <li>
+                            <i class="fas fa-star theme-color"></i>
+                        </li>
+                        <li>
+                            <i class="fas fa-star theme-color"></i>
+                        </li>
+                        <li>
+                            <i class="fas fa-star"></i>
+                        </li>
+                        <li>
+                            <i class="fas fa-star"></i>
+                        </li>
+                    </ul>
+                    <p class="mb-0 mt-1">$@item.Price</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+}

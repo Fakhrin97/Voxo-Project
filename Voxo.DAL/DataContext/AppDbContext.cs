@@ -21,5 +21,7 @@ namespace Voxo.DAL.DataContext
         public DbSet<WishListProduct> WishListProduct { get; set; }
         public DbSet<Compare> Compares { get; set; }
         public DbSet<CompareProduct> CompareProducts { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<BasketProduct> BasketProducts { get; set; }
     }
 }

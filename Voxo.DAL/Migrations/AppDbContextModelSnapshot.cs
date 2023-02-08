@@ -155,6 +155,55 @@ namespace Voxo.DAL.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Voxo.DAL.Entities.Basket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("Published")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Baskets");
+                });
+
+            modelBuilder.Entity("Voxo.DAL.Entities.BasketProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("BasketId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Published")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BasketId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("BasketProducts");
+                });
+
             modelBuilder.Entity("Voxo.DAL.Entities.Blog", b =>
                 {
                     b.Property<int>("Id")
@@ -699,6 +748,25 @@ namespace Voxo.DAL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Voxo.DAL.Entities.BasketProduct", b =>
+                {
+                    b.HasOne("Voxo.DAL.Entities.Basket", "Basket")
+                        .WithMany("BasketProducts")
+                        .HasForeignKey("BasketId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Voxo.DAL.Entities.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Basket");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Voxo.DAL.Entities.CompareProduct", b =>
                 {
                     b.HasOne("Voxo.DAL.Entities.Compare", "Compare")
@@ -768,6 +836,11 @@ namespace Voxo.DAL.Migrations
                     b.Navigation("Product");
 
                     b.Navigation("WishList");
+                });
+
+            modelBuilder.Entity("Voxo.DAL.Entities.Basket", b =>
+                {
+                    b.Navigation("BasketProducts");
                 });
 
             modelBuilder.Entity("Voxo.DAL.Entities.Category", b =>

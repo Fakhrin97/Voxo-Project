@@ -101,7 +101,7 @@ namespace Voxo_Project.Controllers
                     .Include(x => x.WishListProducts)
                     .FirstOrDefaultAsync();
 
-                if (existWishList != null)
+                if (existWishList is not null)
                 {
 
                     var existFavoriProduct = existWishList.WishListProducts

@@ -95,7 +95,7 @@
                                                 <li class="dropdown">
                                                     <a asp-controller="Shop" asp-action="Index" class="nav-link">shop</a>
                                                 </li>
-                                                
+
                                                 <li>
                                                     <a asp-controller="Blogs" asp-action="Index" as class="nav-link menu-title">blog</a>
                                                 </li>
@@ -171,72 +171,16 @@
                                         <span class="input-group-text">
                                             <i data-feather="search" class="font-light"></i>
                                         </span>
-                                        <input type="text" class="form-control search-type" placeholder="Search here..">
+                                        <form id="search" action="#" >
+                                            <input id="search-procucts" type="text" class="form-control search-type" placeholder="Search here..">
+                                            
+                                        </form>
                                         <span class="input-group-text close-search">
                                             <i data-feather="x" class="font-light"></i>
                                         </span>
                                     </div>
-                                    <div class="search-suggestion">
-                                        <ul class="custom-scroll">
-                                            <li>
-                                                <div class="product-cart media">
-                                                    <img src="~/assets/images/electronics/product/1.jpg"
-                                                         class="img-fluid blur-up lazyload" alt="">
-                                                    <div class="media-body">
-                                                        <a href="javascript:void(0)">
-                                                            <h6 class="mb-1">Latest Sports Shoes</h6>
-                                                        </a>
-                                                        <ul class="rating">
-                                                            <li>
-                                                                <i class="fas fa-star theme-color"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star theme-color"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star theme-color"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star"></i>
-                                                            </li>
-                                                        </ul>
-                                                        <p class="mb-0 mt-1">$28.00</p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="product-cart media">
-                                                    <img src="~/assets/images/electronics/product/5.jpg"
-                                                         class="img-fluid blur-up lazyload" alt="">
-                                                    <div class="media-body">
-                                                        <a href="javascript:void(0)">
-                                                            <h6 class="mb-1">Powermatic 900 W Juicer</h6>
-                                                        </a>
-                                                        <ul class="rating">
-                                                            <li>
-                                                                <i class="fas fa-star theme-color"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star theme-color"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star theme-color"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star theme-color"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star theme-color"></i>
-                                                            </li>
-                                                        </ul>
-                                                        <p class="mb-0 mt-1">$35.00</p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                    <div ></div>
+                                    <div id="product-list" class="search-suggestion">                                       
                                     </div>
                                 </div>
                             </div>
@@ -726,20 +670,6 @@
     </div>
     <!-- Coockie Section End -->
     <!-- theme Setting Start -->
-    <div class="theme-setting">
-        <ul>
-            <li>
-                <button id="darkButton" class="btn btn-sm dark-buttton">Dark</button>
-            </li>
-            <li>
-                <button class="btn btn-sm rtl-button">RTL</button>
-            </li>
-            <li class="color-picker">
-                <input type="color" class="form-control form-control-color" id="ColorPicker1" value="#df4246"
-                       title="Choose your color">
-            </li>
-        </ul>
-    </div>
     <!-- theme Setting End -->
     <!-- tap to top Section Start -->
     <div class="tap-to-top">
@@ -768,7 +698,7 @@
     <script src="~/assets/js/pwa.js"></script>
 
     <!-- Timer Js -->
- @*   <script src="~/assets/js/timer1.js" asp-append-version="true"></script>*@
+    @*   <script src="~/assets/js/timer1.js" asp-append-version="true"></script>*@
 
     <!-- Slick js-->
     <script src="~/assets/js/slick/slick.js"></script>
