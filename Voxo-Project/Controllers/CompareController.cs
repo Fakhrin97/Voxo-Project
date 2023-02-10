@@ -35,7 +35,7 @@ namespace Voxo_Project.Controllers
                     .Where(x => x.UserId == user.Id)
                     .Include(x => x.CompareProducts)
                     .ThenInclude(x => x.Product)
-                    .ThenInclude(x=>x.Images)
+                    .ThenInclude(x => x.Images)
                     .Include(x => x.CompareProducts)
                     .ThenInclude(x => x.Product)
                     .ThenInclude(x => x.Category)
@@ -43,20 +43,20 @@ namespace Voxo_Project.Controllers
 
                 if (compareList is not null)
                 {
-                foreach (var item in compareList.CompareProducts)
-                {
-                    model.Add(new CompareVM
+                    foreach (var item in compareList.CompareProducts)
                     {
-                        Id = item.ProductId,
-                        Name = item.Product.Name,
-                        Price = item.Product.Price,
-                        Cayegory= item.Product.Category.Name,
-                        Weight = item.Product.Weight,
-                        DateFirstAvailable= item.Product.DateFirstAvailable,    
-                        DiscountDegree = item.Product.DiscountDegree,
-                        ImageUrl = item.Product.Images.FirstOrDefault()?.Name,
-                    });
-                }
+                        model.Add(new CompareVM
+                        {
+                            Id = item.ProductId,
+                            Name = item.Product.Name,
+                            Price = item.Product.Price,
+                            Cayegory = item.Product.Category.Name,
+                            Weight = item.Product.Weight,
+                            DateFirstAvailable = item.Product.DateFirstAvailable,
+                            DiscountDegree = item.Product.DiscountDegree,
+                            ImageUrl = item.Product.Images.FirstOrDefault()?.Name,
+                        });
+                    }
                 }
             }
             else
@@ -70,7 +70,7 @@ namespace Voxo_Project.Controllers
                         var product = await _dbContext.Products
                             .Where(product => product.Id == productId && !product.Published)
                             .Include(product => product.Images)
-                            .Include(product=>product.Category)
+                            .Include(product => product.Category)
                             .FirstOrDefaultAsync();
 
                         model.Add(new CompareVM
@@ -83,7 +83,7 @@ namespace Voxo_Project.Controllers
                             ImageUrl = product.Images.FirstOrDefault()?.Name,
                             Cayegory = product.Category.Name,
                             DateFirstAvailable = product.DateFirstAvailable,
-                           
+
                         });
                     }
                 }
@@ -176,7 +176,7 @@ namespace Voxo_Project.Controllers
                     if (productIdList.Contains(productId.Value))
                         return NoContent();
 
-                    productIdList.Add(productId.Value);                   
+                    productIdList.Add(productId.Value);
 
                     var productIdListJson = JsonConvert.SerializeObject(productIdList);
 

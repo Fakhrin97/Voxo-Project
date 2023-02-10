@@ -42,25 +42,30 @@ namespace Voxo_Project.ViewComponents
                     .ThenInclude(x => x.Images)
                     .FirstOrDefaultAsync();
 
-                    foreach (var item in basket.BasketProducts)
+                    if (basket is not null)
                     {
-                        var product = _dbContext.Products
-                            .Where(p => p.Id == item.ProductId && !p.Published)
-                            .Include(x => x.Images)
-                            .FirstOrDefault();
-
-                        if (product is not null)
+                        foreach (var item in basket.BasketProducts)
                         {
-                            model.Add(new BasketProductVM
+                            var product = _dbContext.Products
+                                .Where(p => p.Id == item.ProductId && !p.Published)
+                                .Include(x => x.Images)
+                                .FirstOrDefault();
+
+                            if (product is not null)
                             {
-                                Id = product.Id,
-                                Name = product.Name,
-                                Price = product.Price,
-                                Count = item.Count,
-                                Images = product.Images,
-                            });
+                                model.Add(new BasketProductVM
+                                {
+                                    Id = product.Id,
+                                    Name = product.Name,
+                                    Price = product.Price,
+                                    Count = item.Count,
+                                    Images = product.Images,
+                                });
+                            }
                         }
+
                     }
+
                 }
             }
             else

@@ -56,14 +56,10 @@
                 <span class="font-light">Total:</span> $
                totolPrice
             </h6>
-            <button onclick="location.href = 'cart.html';" type="button"
+            <a asp-controller="Basket" asp-action="Index"
                     class="btn btn-solid-default btn-block">
                 Proceed to payment
-            </button>
+            </a>
         </div>
     </div>
 </li>
-@section Scripts{
-    <script>
-    </script>
-}

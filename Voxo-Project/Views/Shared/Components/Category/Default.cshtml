@@ -26,7 +26,7 @@
                         @foreach (var item in Model)
                         {
                         <div>
-                            <a href="shop-left-sidebar.html" class="category-wrap">
+                                <a asp-controller="Shop" asp-action="Index" asp-route-categoryId="@item.Id" class="category-wrap">
                                 <img src="~/assets/images/voxo-category/@item.ImageUrl" class="bg-img blur-up lazyload"
                                      alt="category image">
                                 <div class="category-content category-spacing">

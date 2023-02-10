@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using University.DAL.Repositories.Contracts;
 using Voxo.BLL.Data;
+using Voxo.BLL.Services.Contracts;
 using Voxo.BLL.ViewModels;
 using Voxo.BLL.ViewModels.BlogVM;
 using Voxo.DAL.DataContext;
@@ -13,20 +15,21 @@ namespace Voxo_Project.Areas.Admin.Controllers
     {
         private readonly AppDbContext _dbContext;
         private readonly IMapper _mapper;
+        private readonly IRepository<Blog> _blogRepository;
+        private readonly IBlogService _blogServices;
 
-        public BlogsController(AppDbContext dbContext, IMapper mapper)
+        public BlogsController(AppDbContext dbContext, IMapper mapper, IRepository<Blog> blogRepository, IBlogService blogServices)
         {
             _dbContext = dbContext;
             _mapper = mapper;
+            _blogRepository = blogRepository;
+            _blogServices = blogServices;
         }
         public async Task<IActionResult> Index()
         {
-            var blogs = await _dbContext.Blogs
-                .ToListAsync();
+            var blogs = await _blogServices.GetBlogs(); 
 
-            var blogVM = _mapper.Map<List<BlogsVM>>(blogs);
-
-            return View(blogVM);
+            return View(blogs);
         }
         public IActionResult Create()
         {
@@ -67,16 +70,16 @@ namespace Voxo_Project.Areas.Admin.Controllers
 
             var unicalName = await model.Image.GenerateFile(Constants.BlogPath);
 
-            await _dbContext.Blogs.AddAsync(new Blog
+            var createdBlog = new Blog
             {
                 ImageUrl = unicalName,
                 Title = model.Title,
                 Content = model.Content,
                 CreatedAt = DateTime.Now,
                 CreatedBy = "Fakhrin Aliyev",
-            });
+            };
 
-            await _dbContext.SaveChangesAsync();
+            await _blogRepository.AddAsync(createdBlog);
 
             return RedirectToAction(nameof(Index));
 
@@ -85,9 +88,7 @@ namespace Voxo_Project.Areas.Admin.Controllers
         {
             if (id == null) return NotFound();
 
-            var blog = await _dbContext.Blogs
-                .Where(blog => blog.Id == id)
-                .FirstOrDefaultAsync();
+            var blog = await _blogRepository.GetAsync(id);
 
             if (blog == null) return NotFound();
 
@@ -108,9 +109,7 @@ namespace Voxo_Project.Areas.Admin.Controllers
 
             if (id == null) return NotFound();
 
-            var existBlog = await _dbContext.Blogs
-                .Where(blog => blog.Id == id)
-            .FirstOrDefaultAsync();
+            var existBlog = await _blogRepository.GetAsync(id);
 
             if (existBlog == null) return NotFound();
 
@@ -153,20 +152,16 @@ namespace Voxo_Project.Areas.Admin.Controllers
         {
             if (id == null) return NotFound();
 
-            var existBlog = await _dbContext.Blogs
-                .Where(blog => blog.Id == id)
-                .FirstOrDefaultAsync();
+            var existBlog = await _blogRepository.GetAsync(id);
 
             if (existBlog == null) return NotFound();
-
-            _dbContext.Blogs.Remove(existBlog);
 
             var path = Path.Combine(Constants.RootPath, "assets", "images", "voxo-blog", existBlog.ImageUrl);
 
             if (System.IO.File.Exists(path))
                 System.IO.File.Delete(path);
 
-            await _dbContext.SaveChangesAsync();
+            await _blogRepository.DeleteAsync(existBlog);
 
             return RedirectToAction(nameof(Index));
         }

@@ -38,18 +38,20 @@ namespace Voxo_Project.Controllers
                     .ThenInclude(x => x.Images)
                     .FirstOrDefaultAsync();
 
-                foreach (var item in wishList.WishListProducts)
+                if (wishList is not null)
                 {
-                    model.Add(new WishListVM
+                    foreach (var item in wishList.WishListProducts)
                     {
-                        Id = item.ProductId,
-                        Name = item.Product.Name,
-                        Price = item.Product.Price,
-                        DiscountDegree = item.Product.DiscountDegree,
-                        ImageUrl = item.Product.Images.FirstOrDefault()?.Name,
-                    });
+                        model.Add(new WishListVM
+                        {
+                            Id = item.ProductId,
+                            Name = item.Product.Name,
+                            Price = item.Product.Price,
+                            DiscountDegree = item.Product.DiscountDegree,
+                            ImageUrl = item.Product.Images.FirstOrDefault()?.Name,
+                        });
+                    }
                 }
-
             }
             else
             {

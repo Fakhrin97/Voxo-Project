@@ -1,7 +1,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using University.DAL.Repositories;
+using University.DAL.Repositories.Contracts;
 using Voxo.BLL.Data;
 using Voxo.BLL.Mapping;
+using Voxo.BLL.Services;
+using Voxo.BLL.Services.Contracts;
 using Voxo.BLL.Services.MailService;
 using Voxo.DAL.Data;
 using Voxo.DAL.DataContext;
@@ -67,6 +71,8 @@ namespace Voxo_Project
             builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
             builder.Services.AddTransient<IMailService, MailManager>();
 
+            builder.Services.AddScoped(typeof(IRepository<>), typeof(EfCoreRepository<>));
+            builder.Services.AddScoped<IBlogService, BlogManeger>();
 
             var app = builder.Build();
 

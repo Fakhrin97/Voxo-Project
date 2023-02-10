@@ -39,22 +39,26 @@ namespace Voxo_Project.Controllers
                     .ThenInclude(x => x.Images)
                     .FirstOrDefaultAsync();
 
-                foreach (var item in basket.BasketProducts)
+                if (basket is not null)
                 {
-                    var product = _dbContext.Products
-                        .Where(p => p.Id == item.Product.Id && !p.Published)
-                        .Include(x => x.Images)
-                        .FirstOrDefault();
-
-                    model.Add(new BasketProductVM
+                    foreach (var item in basket.BasketProducts)
                     {
-                        Id = product.Id,
-                        Name = product.Name,
-                        Price = product.Price,
-                        Count = item.Count,
-                        Images = product.Images,
-                    });
+                        var product = _dbContext.Products
+                            .Where(p => p.Id == item.Product.Id && !p.Published)
+                            .Include(x => x.Images)
+                            .FirstOrDefault();
+
+                        model.Add(new BasketProductVM
+                        {
+                            Id = product.Id,
+                            Name = product.Name,
+                            Price = product.Price,
+                            Count = item.Count,
+                            Images = product.Images,
+                        });
+                    }
                 }
+
             }
             else
             {
@@ -206,7 +210,7 @@ namespace Voxo_Project.Controllers
                 var basket = await _dbContext
                     .Baskets
                     .Where(x => x.UserId == user.Id)
-                    .Include(x => x.BasketProducts)                    
+                    .Include(x => x.BasketProducts)
                     .FirstOrDefaultAsync();
 
                 var existProduct = basket.BasketProducts.Where(product => product.ProductId == productId).FirstOrDefault();
