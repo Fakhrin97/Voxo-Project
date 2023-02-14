@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-
+﻿
 namespace Voxo.BLL.Data
 {
     public static class FileExtensions

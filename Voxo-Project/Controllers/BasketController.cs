@@ -1,12 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
-using Voxo.BLL.Data;
-using Voxo.BLL.ViewModels;
-using Voxo.DAL.DataContext;
-using Voxo.DAL.Entities;
-
+﻿
 namespace Voxo_Project.Controllers
 {
     public class BasketController : Controller

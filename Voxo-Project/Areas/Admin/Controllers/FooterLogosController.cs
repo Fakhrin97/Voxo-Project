@@ -1,11 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Voxo.BLL.Data;
-using Voxo.BLL.ViewModels;
-using Voxo.DAL.DataContext;
-using Voxo.DAL.Entities;
-
+﻿
 namespace Voxo_Project.Areas.Admin.Controllers
 {
     public class FooterLogosController : BaseController

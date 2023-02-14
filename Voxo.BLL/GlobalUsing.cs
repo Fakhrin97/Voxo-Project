@@ -1,0 +1,17 @@
+﻿global using FluentValidation;
+global using Microsoft.AspNetCore.Mvc.Rendering;
+global using System.ComponentModel.DataAnnotations;
+global using Microsoft.Extensions.Options;
+global using Voxo.BLL.Data;
+global using Voxo.DAL.DataContext;
+global using Voxo.DAL.Entities;
+global using Microsoft.AspNetCore.Http;
+global using University.DAL.Repositories.Contracts;
+global using AutoMapper;
+global using University.DAL.Repositories;
+global using Voxo.BLL.Services.Contracts;
+global using Voxo.BLL.ViewModels;
+global using Voxo.BLL.ViewModels.BlogVM;
+global using MailKit.Security;
+global using MimeKit;
+global using MailKit.Net.Smtp;

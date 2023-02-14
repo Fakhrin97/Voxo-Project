@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Voxo.DAL.DataContext;
-
+﻿
 namespace Voxo_Project.Controllers
 {
     public class HomeController : Controller

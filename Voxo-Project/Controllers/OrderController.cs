@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Voxo.DAL.DataContext;
-using Voxo.DAL.Entities;
-
+﻿
 namespace Voxo_Project.Controllers
 {
     public class OrderController : Controller

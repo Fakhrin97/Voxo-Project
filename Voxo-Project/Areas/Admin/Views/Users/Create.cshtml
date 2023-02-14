@@ -75,7 +75,7 @@
                                                 <input class="form-control" asp-for="Password"
                                                        placeholder="Password">
                                             </div>
-                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                            <span asp-validation-for="Password" type="password" class="text-danger"></span>
                                         </div>
 
                                         <div class="mb-4 row align-items-center">
@@ -91,6 +91,7 @@
                                         
                                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                                         <a class="btn btn-light" asp-action="Index">Cancel</a>
+                                        </div>
                                 </form>
                             </div>
                         </div>

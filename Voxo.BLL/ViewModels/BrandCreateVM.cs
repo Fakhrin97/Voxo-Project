@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-
-
+﻿
 namespace Voxo.BLL.ViewModels
 {
     public class BrandCreateVM

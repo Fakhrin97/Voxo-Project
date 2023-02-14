@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Voxo.DAL.Entities;
-
+﻿
 namespace Voxo.BLL.ViewModels
 {
     public class ProductVM

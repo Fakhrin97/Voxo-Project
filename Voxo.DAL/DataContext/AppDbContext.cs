@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using Voxo.DAL.Entities;
-
+﻿
 namespace Voxo.DAL.DataContext
 {
     public class AppDbContext : IdentityDbContext<User>

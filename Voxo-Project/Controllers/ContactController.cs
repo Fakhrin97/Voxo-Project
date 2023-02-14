@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Voxo.BLL.ViewModels;
-using Voxo.DAL.Entities;
-
+﻿
 namespace Voxo_Project.Controllers
 {
     public class ContactController : Controller

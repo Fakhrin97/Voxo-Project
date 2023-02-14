@@ -1,5 +1,4 @@
-﻿using Voxo.DAL.Base;
-
+﻿
 namespace Voxo.DAL.Entities
 {
     public class ProductImage : IEntity

@@ -1,9 +1,4 @@
-﻿using MailKit.Security;
-using Microsoft.Extensions.Options;
-using MimeKit;
-using MailKit.Net.Smtp;
-using Voxo.BLL.Data;
-
+﻿
 namespace Voxo.BLL.Services.MailService
 {
     public class MailManager : IMailService

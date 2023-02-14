@@ -1,10 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Voxo.BLL.ViewModels;
-using Voxo.DAL.DataContext;
-
+﻿
 namespace Voxo_Project.ViewComponents
 {
     public class BlogsSliderViewComponent : ViewComponent

@@ -1,5 +1,4 @@
-﻿using Voxo.DAL.Entities;
-namespace Voxo.BLL.ViewModels
+﻿namespace Voxo.BLL.ViewModels
 {
     public class ProductAdminVM
     {

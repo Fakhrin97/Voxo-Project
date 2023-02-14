@@ -1,5 +1,9 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Crypto.Tls;
+using System.Reflection;
 using University.DAL.Repositories;
 using University.DAL.Repositories.Contracts;
 using Voxo.BLL.Data;
@@ -7,6 +11,8 @@ using Voxo.BLL.Mapping;
 using Voxo.BLL.Services;
 using Voxo.BLL.Services.Contracts;
 using Voxo.BLL.Services.MailService;
+using Voxo.BLL.Validators.UserValidators;
+using Voxo.BLL.ViewModels;
 using Voxo.DAL.Data;
 using Voxo.DAL.DataContext;
 using Voxo.DAL.Entities;
@@ -39,6 +45,9 @@ namespace Voxo_Project
                   options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
               });
 
+            builder.Services
+                .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<UserVM>());
+
             //builder.Services.AddDbContext<AppDbContext>(options =>
             //{
             //    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
@@ -64,7 +73,7 @@ namespace Voxo_Project
                 options.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
-            builder.Services.Configure<AdminUser>(builder.Configuration.GetSection("AdminUser"));           
+            builder.Services.Configure<AdminUser>(builder.Configuration.GetSection("AdminUser"));
 
             builder.Services.AddAutoMapper(typeof(MappingProfile));
 
@@ -73,6 +82,7 @@ namespace Voxo_Project
 
             builder.Services.AddScoped(typeof(IRepository<>), typeof(EfCoreRepository<>));
             builder.Services.AddScoped<IBlogService, BlogManeger>();
+            builder.Services.AddScoped<IValidator<UserCreateVM>, UserCreateVMValidation>();
 
             var app = builder.Build();
 

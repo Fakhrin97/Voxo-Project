@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Voxo.DAL.Entities;
-
+﻿
 namespace Voxo.BLL.ViewModels
 {
     public class ProductUpdateVM

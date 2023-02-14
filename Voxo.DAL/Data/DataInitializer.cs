@@ -1,11 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-using Voxo.BLL.Data;
-using Voxo.DAL.DataContext;
-using Voxo.DAL.Entities;
-
+﻿
 namespace Voxo.DAL.Data
 {
     public class DataInitializer

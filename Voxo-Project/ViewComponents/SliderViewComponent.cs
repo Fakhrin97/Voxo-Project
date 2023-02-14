@@ -1,9 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Voxo.BLL.ViewModels;
-using Voxo.DAL.DataContext;
-
+﻿
 namespace Voxo_Project.ViewComponents
 {
     public class SliderViewComponent : ViewComponent

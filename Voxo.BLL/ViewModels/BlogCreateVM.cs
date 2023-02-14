@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-
-
+﻿
 namespace Voxo.BLL.ViewModels.BlogVM
 {
     public class BlogCreateVM

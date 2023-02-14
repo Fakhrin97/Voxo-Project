@@ -1,10 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Voxo.BLL.ViewModels;
-using Voxo.DAL.DataContext;
-using Voxo.DAL.Entities;
-
+﻿
 namespace Voxo_Project.Areas.Admin.Controllers
 {
     public class OrdersController : BaseController
@@ -90,7 +84,6 @@ namespace Voxo_Project.Areas.Admin.Controllers
              _dbContext.Orders.Remove(order);  
 
             await _dbContext.SaveChangesAsync();
-
 
             return NoContent();
         }

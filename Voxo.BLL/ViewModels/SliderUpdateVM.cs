@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Voxo.DAL.Entities;
-
+﻿
 namespace Voxo.BLL.ViewModels
 {
     public class SliderUpdateVM

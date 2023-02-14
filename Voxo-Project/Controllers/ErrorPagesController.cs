@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
+﻿
 namespace Voxo_Project.Controllers
 {
     public class ErrorPagesController : Controller

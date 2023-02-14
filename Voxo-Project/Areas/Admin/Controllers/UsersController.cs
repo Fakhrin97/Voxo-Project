@@ -1,12 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Voxo.BLL.Data;
-using Voxo.BLL.ViewModels;
-using Voxo.DAL.DataContext;
-using Voxo.DAL.Entities;
-
+﻿
 namespace Voxo_Project.Areas.Admin.Controllers
 {
     public class UsersController : BaseController
@@ -69,7 +61,7 @@ namespace Voxo_Project.Areas.Admin.Controllers
             {
                 Roles = GetRoles()
             };
-
+          
             if (!ModelState.IsValid)
             {
                 return View(viewModel);

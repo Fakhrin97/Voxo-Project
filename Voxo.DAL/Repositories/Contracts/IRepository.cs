@@ -1,5 +1,4 @@
-﻿using Voxo.DAL.Base;
-
+﻿
 namespace University.DAL.Repositories.Contracts
 {
     public interface IRepository<T> where T : class, IEntity

@@ -1,13 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using University.DAL.Repositories.Contracts;
-using Voxo.BLL.Data;
-using Voxo.BLL.Services.Contracts;
-using Voxo.BLL.ViewModels;
-using Voxo.BLL.ViewModels.BlogVM;
-using Voxo.DAL.DataContext;
-using Voxo.DAL.Entities;
+﻿
 
 namespace Voxo_Project.Areas.Admin.Controllers
 {

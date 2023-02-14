@@ -1,13 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using NuGet.Protocol.Plugins;
-using Voxo.BLL.Data;
-using Voxo.BLL.Services.MailService;
-using Voxo.BLL.ViewModels;
-using Voxo.DAL.Entities;
-
+﻿
 namespace Voxo_Project.Controllers
 {
     public class AccountController : Controller

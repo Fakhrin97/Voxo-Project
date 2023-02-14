@@ -1,5 +1,4 @@
 ﻿
-
 namespace Voxo.BLL.ViewModels
 {
     public class FooterLogoUpdateVM

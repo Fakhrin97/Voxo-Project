@@ -138,17 +138,16 @@
     <script>
         $(document).on('click', '#cancel-user-order', function () {
             var orderId = $(this).parent().parent().children().val();
+             orderId = (+orderId)
+        
             $.ajax({
                 type: "POST",
-                url: "areas/Orders/DeleteOrder",
+                url: "/Orders/DeleteOrder",
                 data: { orderId: orderId },
                 success: function () {
                     $("#" + orderId + "order").remove();
-                },
-
+                }
             });
-
-
         });
     </script>
 }

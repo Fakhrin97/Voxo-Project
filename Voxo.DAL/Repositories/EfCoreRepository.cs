@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using University.DAL.Repositories.Contracts;
-using Voxo.DAL.Base;
-using Voxo.DAL.DataContext;
-
+﻿
 namespace University.DAL.Repositories
 {
     public class EfCoreRepository<T> : IRepository<T> where T : class, IEntity

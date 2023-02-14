@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Voxo.DAL.Base;
-
+﻿
 namespace Voxo.DAL.Entities
 {
     public class Product : TimeStample, IEntity
