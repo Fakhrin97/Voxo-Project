@@ -7,7 +7,8 @@ namespace Voxo.DAL.Entities
         public bool Published { get; set ; }
         public string Name { get; set ; }   
         public string Email { get; set ; }  
-        public string Comment { get; set ; }    
+        public string Comment { get; set ; }  
+        public bool IsRead { get; set; }
 
     }
 }

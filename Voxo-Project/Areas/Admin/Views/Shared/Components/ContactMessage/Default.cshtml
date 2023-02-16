@@ -1,0 +1,32 @@
+﻿@model NotiticationsVM 
+@{
+    var messages = Model.ContactMessages;
+    var count = Model.Count;
+}
+<li class="onhover-dropdown">
+    <div class="notification-box">
+        <span class="lnr lnr-alarm"></span>
+        <span class="badge rounded-pill badge-theme"></span>
+    </div>
+    <ul class="notification-dropdown onhover-show-div">
+        <li>
+            <span class="lnr lnr-alarm">@count</span>
+            <h6 class="f-18 mb-0">Notitications</h6>
+        </li>
+        @foreach (var item in messages)
+        {
+        <li>
+            <p>
+                    <i class="fa fa-circle-o me-3 font-primary"></i> @(item.Comment.Length > 25 ? item.Comment.Substring(0, 25) + "..." : item.Comment) <span class="pull-right">
+                   
+                </span>
+            </p>
+        </li>
+            
+        }
+       
+        <li>
+            <a class="btn btn-primary" href="javascript:void(0)">Check all notification</a>
+        </li>
+    </ul>
+</li>

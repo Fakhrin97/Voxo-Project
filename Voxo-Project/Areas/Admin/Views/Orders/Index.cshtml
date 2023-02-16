@@ -17,7 +17,7 @@
                                 <table class="table table-striped all-package">
                                     <thead>
                                         <tr>
-                                            <th>Order Image</th>
+                                         
                                             <th>User Name</th>
                                             <th>Date</th>
                                             <th>Payment Method</th>
@@ -30,12 +30,7 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                            <tr id=@(item.Id+"order")>
-                                                <td>
-                                                    <span style="cursor:pointer">
-                                                        <img src="assets/images/profile/1.jpg" alt="users">
-                                                    </span>
-                                                </td>
+                                            <tr id=@(item.Id+"order")>                                               
 
                                                 <td>@item.Name</td>
 
@@ -68,15 +63,18 @@
                                                         </li>
 
                                                         <li>
-                                                            <a href="javascript:void(0)">
-                                                                <span class="lnr lnr-pencil"></span>
-                                                            </a>
+                                                            <form class="forms-sample" method="post" asp-action="UpdateOrder" asp-route-id="@item.Id">
+                                                                <button style="border:none" href="javascript:void(0)">
+                                                                    <span class="lnr lnr-pencil"></span>
+                                                                </button>
+                                                            </form>
+
                                                         </li>
 
                                                         <li>
-                                                            <a id="cancel-user-order">
-                                                                <span class="lnr lnr-trash"></span>
-                                                            </a>
+                                                            <form class="forms-sample" method="post" asp-action="DeleteOrder" asp-route-id="@item.Id">
+                                                                <button type="submit" class="btn btn-danger mr-2"><i class="far fa-trash-alt theme-color"></i></button>
+                                                            </form>
                                                         </li>
                                                     </ul>
                                                 </td>
@@ -137,17 +135,18 @@
 @section Scripts {
     <script>
         $(document).on('click', '#cancel-user-order', function () {
-            var orderId = $(this).parent().parent().children().val();
-             orderId = (+orderId)
-        
-            $.ajax({
-                type: "POST",
-                url: "/Orders/DeleteOrder",
-                data: { orderId: orderId },
-                success: function () {
-                    $("#" + orderId + "order").remove();
-                }
-            });
-        });
+            var orderId = $(this).attr.;
+            orderId = (+orderId)
+            $("#" + orderId + "order").remove();
+
+        @*  $.ajax({
+            type: "POST",
+            url: "/Orders/DeleteOrder",
+            data: { orderId: orderId },
+            success: function () {
+
+            }
+            });*@
+                });
     </script>
 }

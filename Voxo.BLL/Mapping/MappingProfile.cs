@@ -29,6 +29,7 @@ namespace Voxo.BLL.Mapping
             CreateMap<Product , ProductVM>().ReverseMap();    
             CreateMap<Product, MostPapularProduct>().ReverseMap();    
             CreateMap<User, RegisterVM>().ReverseMap();    
+            CreateMap<ContactMessage, ContactMessageVM>().ReverseMap();    
         }
     }
 }

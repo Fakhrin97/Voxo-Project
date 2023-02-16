@@ -1,8 +1,4 @@
-﻿@inject AppDbContext _dbContect;
-@{
-    var existSlider = _dbContect.Sliders
-    .FirstOrDefault();
-}
+﻿
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -108,45 +104,7 @@
                                 <span class="lnr lnr-magnifier"></span>
                             </span>
                         </li>
-                        <li class="onhover-dropdown">
-                            <div class="notification-box">
-                                <span class="lnr lnr-alarm"></span>
-                                <span class="badge rounded-pill badge-theme">4</span>
-                            </div>
-                            <ul class="notification-dropdown onhover-show-div">
-                                <li>
-                                    <span class="lnr lnr-alarm"></span>
-                                    <h6 class="f-18 mb-0">Notitications</h6>
-                                </li>
-                                <li>
-                                    <p>
-                                        <i class="fa fa-circle-o me-3 font-primary"></i>Delivery processing <span class="pull-right">
-                                            10
-                                            min.
-                                        </span>
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        <i class="fa fa-circle-o me-3 font-success"></i>Order Complete<span class="pull-right">1 hr</span>
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        <i class="fa fa-circle-o me-3 font-info"></i>Tickets Generated<span class="pull-right">3 hr</span>
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        <i class="fa fa-circle-o me-3 font-danger"></i>Delivery Complete<span class="pull-right">6 hr</span>
-                                    </p>
-                                </li>
-                                <li>
-                                    <a class="btn btn-primary" href="javascript:void(0)">Check all notification</a>
-                                </li>
-                            </ul>
-                        </li>
-
+                        @await Component.InvokeAsync("ContactMessage")
                         <li>
                             <div class="mode">
                                 <span class="lnr lnr-moon"></span>
@@ -456,27 +414,24 @@
                                         <li>
                                             <a asp-controller="Sliders" asp-action="Index">Slider</a>
                                         </li>
-                                        @(existSlider == null){
+                                        
                                         <li>
                                             <a asp-controller="Sliders" asp-action="Create">Create Slider</a>
                                         </li>
-                                        }
+                                       
                                     </ul>
                                 </li>
 
                                 <li class="sidebar-list">
                                     <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
                                         <i data-feather="align-left"></i>
-                                        <span>Menus</span>
+                                        <span>Messages</span>
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="menu-lists.html">Menu Lists</a>
+                                            <a asp-controller="ContactMessages" asp-action="Index" >Message Lists</a>
                                         </li>
-
-                                        <li>
-                                            <a href="create-menu.html">Create Menu</a>
-                                        </li>
+                                       
                                     </ul>
                                 </li>
 

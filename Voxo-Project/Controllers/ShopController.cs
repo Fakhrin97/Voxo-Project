@@ -86,7 +86,7 @@ namespace Voxo_Project.Controllers
 
             var model = new ShopPageVM();
 
-            int perPage = 4;
+            int perPage = 12;
             int pageCount = (int)Math.Ceiling((double)productVM.Count() / perPage);
 
             if (page <= 0) page = 1;

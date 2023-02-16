@@ -8,18 +8,46 @@ namespace Voxo_Project.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IMailService _mailService;
         private readonly IMapper _mapper;
+        private readonly AppDbContext _dbContext;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager, IMapper mapper, IMailService mailService)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager, IMapper mapper, IMailService mailService, AppDbContext dbContext)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
             _mapper = mapper;
             _mailService = mailService;
+            _dbContext = dbContext;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return RedirectToAction(nameof(LogIn));
+           var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            List<WishListVM> model = new();
+
+            var wishList = await _dbContext
+                    .WishList
+                    .Where(x => x.UserId == user.Id)
+                    .Include(x => x.WishListProducts)
+                    .ThenInclude(x => x.Product)
+                    .ThenInclude(x => x.Images)
+                    .FirstOrDefaultAsync();
+
+            if (wishList is not null)
+            {
+                foreach (var item in wishList.WishListProducts)
+                {
+                    model.Add(new WishListVM
+                    {
+                        Id = item.ProductId,
+                        Name = item.Product.Name,
+                        Price = item.Product.Price,
+                        DiscountDegree = item.Product.DiscountDegree,
+                        ImageUrl = item.Product.Images.FirstOrDefault()?.Name,
+                    });
+                }
+            }
+
+            return View(model);
         }
 
         public IActionResult LogIn()
@@ -93,8 +121,7 @@ namespace Voxo_Project.Controllers
                UserName = model.Username,
                Email = model.Email, 
                Fristname = model.Fristname,
-               Lastname = model.Lastname,   
-
+               Lastname = model.Lastname,
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);

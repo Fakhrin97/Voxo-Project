@@ -114,7 +114,7 @@
                             </div>
                         </div>
 
-                       
+
 
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingFive">
@@ -169,55 +169,61 @@
                             </div>
 
                             <div class="product-slider round-arrow1">
-                                <div>
-                                    @for (int i = 0; i < 3; i++)
-                                    {
-                                        <div class="row g-3">
-                                            <div class="col-12">
-                                                <div class="product-image">
-                                                    <a asp-controller="Shop" asp-action="Details" asp-route-id="@mostPapularProduct[i].Id">
-                                                        <img src="~/assets/images/voxo-product/@mostPapularProduct[i]?.Images[0]?.Name"
-                                                             class="blur-up lazyload" alt="">
-                                                    </a>
-                                                    <div class="product-details">
-                                                        <h6 class="font-light">@mostPapularProduct[i]?.Category?.Name</h6>
-                                                        <a asp-controller="Shop" asp-action="Details" asp-route-id="@mostPapularProduct[i].Id" class="">
-                                                            <h3>@mostPapularProduct[i]?.Name</h3>
+                                @if (mostPapularProduct.Count > 2)
+                                {
+                                    <div>
+                                        @for (int i = 0; i < 3; i++)
+                                        {
+                                            <div class="row g-3">
+                                                <div class="col-12">
+                                                    <div class="product-image">
+                                                        <a asp-controller="Shop" asp-action="Details" asp-route-id="@mostPapularProduct[i].Id">
+                                                            <img src="~/assets/images/voxo-product/@mostPapularProduct[i]?.Images[0]?.Name"
+                                                                 class="blur-up lazyload" alt="">
                                                         </a>
-                                                        <h4 class="font-light mt-1">
-                                                            <del>$@mostPapularProduct[i]?.Price</del> <span class="theme-color">$35.50</span>
-                                                        </h4>
+                                                        <div class="product-details">
+                                                            <h6 class="font-light">@mostPapularProduct[i]?.Category?.Name</h6>
+                                                            <a asp-controller="Shop" asp-action="Details" asp-route-id="@mostPapularProduct[i].Id" class="">
+                                                                <h3>@mostPapularProduct[i]?.Name</h3>
+                                                            </a>
+                                                            <h4 class="font-light mt-1">
+                                                                <del>$@mostPapularProduct[i]?.Price</del> <span class="theme-color">$35.50</span>
+                                                            </h4>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    }
+                                        }
+                                    </div>
+                                }
+                                @if (mostPapularProduct.Count > 5)
+                                {
+                                    <div>
+                                        @for (int i = 3; i < 6; i++)
+                                        {
+                                            <div class="row g-3">
+                                                <div class="col-12">
+                                                    <div class="product-image">
+                                                        <a asp-controller="Shop" asp-action="Details" asp-route-id="@mostPapularProduct[i].Id">
+                                                            <img src="~/assets/images/voxo-product/@mostPapularProduct[i]?.Images[0]?.Name"
+                                                                 class="blur-up lazyload" alt="">
+                                                        </a>
+                                                        <div class="product-details">
+                                                            <h6 class="font-light">@mostPapularProduct[i]?.Category?.Name</h6>
+                                                            <a asp-controller="Shop" asp-action="Details" asp-route-id="@mostPapularProduct[i].Id" class="">
+                                                                <h3>@mostPapularProduct[i]?.Name</h3>
+                                                            </a>
+                                                            <h4 class="font-light mt-1">
+                                                                <del>$@mostPapularProduct[i]?.Price</del> <span class="theme-color">$35.50</span>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
 
-                                </div>
-                                <div>
-                                    @for (int i = 3; i < 6; i++)
-                                    {
-                                        <div class="row g-3">
-                                            <div class="col-12">
-                                                <div class="product-image">
-                                                    <a asp-controller="Shop" asp-action="Details" asp-route-id="@mostPapularProduct[i].Id">
-                                                        <img src="~/assets/images/voxo-product/@mostPapularProduct[i]?.Images[0]?.Name"
-                                                             class="blur-up lazyload" alt="">
-                                                    </a>
-                                                    <div class="product-details">
-                                                        <h6 class="font-light">@mostPapularProduct[i]?.Category?.Name</h6>
-                                                        <a asp-controller="Shop" asp-action="Details" asp-route-id="@mostPapularProduct[i].Id" class="">
-                                                            <h3>@mostPapularProduct[i]?.Name</h3>
-                                                        </a>
-                                                        <h4 class="font-light mt-1">
-                                                            <del>$@mostPapularProduct[i]?.Price</del> <span class="theme-color">$35.50</span>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    }
-                                </div>
+                                }
                             </div>
                         </div>
                         <!-- Slider Section End -->
@@ -338,8 +344,8 @@
                 </div>
                 <!-- Prodcut setion -->
                 <partial name="_PaginationPartialView" />
-              
-              
+
+
             </div>
         </div>
     </div>
